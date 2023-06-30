@@ -8,54 +8,9 @@
   <title>Artikelverwaltung</title>
 </h:head>
 <h:body>
-  <p><img id="kopf_links" src="logo.jpg" width="250" alt="Logo"/></p>
-  <p id="kopf_rechts">
-    <h:outputText value="#{anschrift.name}"/>
-    <br/>
-    <h:outputText value="#{anschrift.strasse} #{anschrift.hausnummer}"/>
-    <br/>
-    <h:outputText value="#{anschrift.plz} #{anschrift.ort}"/>
-  </p>
-  <h1>Artikelverwaltung</h1>
-  <h2>Artikel erfassen</h2>
-  <h:form>
-    <h:panelGrid columns="2">
-      <h:commandLink value="zurück" action="#{artikelController.zurueck()}"
-                     rendered="#{artikelController.index > 0}"/>
-      <h:outputText rendered="#{artikelController.index == 0}" value=" "/>
-      <h:commandLink value="vor" action="#{artikelController.vor()}"/>
-      <h:outputLabel value="Nr:" for="nr"/>
-      <h:outputText id="nr" value="#{artikelController.artikel.nr}"/>
-      <h:outputLabel value="Name:" for="name"/>
-      <h:inputText id="name" value="#{artikelController.artikel.name}" size="40"/>
-      <h:outputLabel value="Beschreibung: " for="text"/>
-      <h:inputText id="text" value="#{artikelController.artikel.text}" size="40"/>
-      <h:outputLabel value="Bild-Datei: " for="bilddatei"/>
-      <p:selectOneMenu value="#{artikelController.artikel.bild}">
-        <f:selectItems value="#{shop.sortiment}" var="artikel" itemLabel="#{artikel.bild}" itemValue="#{artikel.bild}"/>
-        <p:ajax event="change" update="bild"/>
-      </p:selectOneMenu>
-      <h:outputLabel value="Verfügbar ab:" for="verfuegbarAb"/>
-      <p:calendar
-          id="verfuegbarAb"
-          value="#{artikelController.artikel.verfuegbarAb}"
-          datePattern="dd.MM.yyyy"
-          enableManualInput="true">
-      </p:calendar>
-      <h:outputLabel value="Bild: " for="bild"/>
-      <h:graphicImage id="bild" url="#{artikelController.artikel.bild}" width="250em"/>
-      <h:commandLink value="zurück" action="#{artikelController.zurueck()}"
-                     rendered="#{artikelController.index > 0}"/>
-      <h:outputText rendered="#{artikelController.index == 0}" value=" "/>
-      <h:commandLink value="vor" action="#{artikelController.vor()}"/>
-    </h:panelGrid>
-  </h:form>
-  <p id="fussnote">Bitte beachten Sie: <br/> Diese Seite ist nur ein Entwurf!</p>
+    <h:dataTable var="einMelder" value="#{controller.findall}">
+        <h:column><h:outputText value="#{einMelder.nachname}"/></h:column>
+    </h:dataTable>
+      
 </h:body>
 </html>
-      <!--  <h:inputText
-          id="bilddatei"
-          value="#{artikelController.artikel.bild}"
-          size="40">
-        <p:ajax event="keyup" update="bild"/>
-      </h:inputText>-->
