@@ -19,6 +19,10 @@ h2{
 #kopf_rechts {
   height:130px;
 }
+
+select.hideDisabled option[disabled] {
+    display: none;
+}
 /*
 table#artikel {
         width: 95%;

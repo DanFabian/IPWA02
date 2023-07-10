@@ -12,6 +12,15 @@ public class person implements Serializable {
     private String vorname;
     private String telefon;
     private boolean berger;
+    private boolean melder;
+
+    public boolean getMelder() {
+        return melder;
+    }
+
+    public void setMelder(boolean melder) {
+        this.melder = melder;
+    }
 
     public boolean getBerger() {
         return berger;

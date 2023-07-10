@@ -32,8 +32,10 @@ public class indexController {
 
     public String geheSeite2() {
         if (person.getTelefon().equalsIgnoreCase("")){
-           person.setBerger(false);}
-        else {person.setBerger(true);}
+           person.setBerger(false);
+            person.setMelder(true);}
+        else {person.setBerger(true);
+              person.setMelder(false);}
         return "auswahl";
       
         

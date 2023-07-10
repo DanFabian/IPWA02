@@ -11,7 +11,7 @@
 <h:body>
   
       
-      <h:outputText value="Sie sind angemeldet als #{person.vorname} #{person.name} #{person.telefon}" />
+      <h:outputText value="Sie sind angemeldet als Vorname: #{person.vorname}, Nachname: #{person.name}, Telefon: #{person.telefon}" />
       <br/>
       <br/>
       <h:outputText value="Bitte treffen Sie eine Auswahl" />
@@ -21,12 +21,11 @@
    
       
         <h:form>
-        <h:selectOneMenu value="#{melderAuswahl.auswahl}">
+        <h:selectOneMenu value="#{melderAuswahl.auswahl}" styleClass="hideDisabled">
             <f:selectItem itemValue="Melden" itemLabel="Ein Netz melden"></f:selectItem>
             <f:selectItem itemValue="Verschollen" itemLabel="Ein Netz verschollen melden" ></f:selectItem>
-            <c:if test="#{person.berger == true}">
-                <f:selectItem itemValue="Bergen" itemLabel="Ein Netz bergen" ></f:selectItem>
-            </c:if>
+            <f:selectItem itemDisabled = "#{person.melder}" itemValue="Bergen" itemLabel="Ein Netz bergen" ></f:selectItem>
+       
         </h:selectOneMenu>
     
         <h:commandButton value="Auswahl" action="#{melderAuswahl.geheSeite}" />
