@@ -21,15 +21,15 @@
    
       
         <h:form>
-        <h:selectOneMenu value="#{melderController.auswahl}">
-            <c:if test="#{person.berger}=true">
-                
-                <f:selectItem itemValue="Melden" itemLabel="Ein Netz melden"></f:selectItem>
+        <h:selectOneMenu value="#{melderAuswahl.auswahl}">
+            <f:selectItem itemValue="Melden" itemLabel="Ein Netz melden"></f:selectItem>
+            <f:selectItem itemValue="Verschollen" itemLabel="Ein Netz verschollen melden" ></f:selectItem>
+            <c:if test="#{person.berger == true}">
+                <f:selectItem itemValue="Bergen" itemLabel="Ein Netz bergen" ></f:selectItem>
             </c:if>
-            <f:selectItem itemValue="Verschollen" itemLabel="Ein Netz verschollenm melden" ></f:selectItem>
         </h:selectOneMenu>
     
-        <h:commandButton value="Auswahl" action="#{melderController.geheSeite}" />
+        <h:commandButton value="Auswahl" action="#{melderAuswahl.geheSeite}" />
     </h:form>
     
 </h:body>

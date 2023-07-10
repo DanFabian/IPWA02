@@ -52,7 +52,7 @@ public class Controller {
    
     public void saveMelder(Melder neuerMelder)
     {
-       EntityManager em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();
         EntityTransaction t= em.getTransaction();
         
         t.begin();
