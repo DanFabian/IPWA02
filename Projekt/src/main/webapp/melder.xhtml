@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+  <title>Artikelverwaltung</title>
+</h:head>
+<h:body>
+  
+  <title>ProjectNet</title>
+      
+      <h:outputText value="Sie sind angemeldet als #{person.vorname} #{person.name} #{person.telefon}" />
+      <br/>
+      <br/>
+      <h:outputText value="Bitte treffen Sie eine Auswahl" />
+      <br/>
+      <br/>
+        <h:form>
+        <h:selectOneMenu value="#{melderController.auswahl}">
+            <f:selectItem itemValue="Melden" itemLabel="Ein Netz melden"></f:selectItem>
+            <f:selectItem itemValue="Verschollen" itemLabel="Ein Netz verschollenm melden"></f:selectItem>
+        </h:selectOneMenu>
+    
+        <h:commandButton value="Auswahl" action="#{melderController.geheSeite}" />
+    </h:form>
+    
+</h:body>
+   
+</html>

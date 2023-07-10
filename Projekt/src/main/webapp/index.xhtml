@@ -4,13 +4,21 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-  <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
-  <title>Artikelverwaltung</title>
+  
+  <title>ProjectNet</title>
+  
 </h:head>
+
 <h:body>
-    <h:dataTable var="einMelder" value="#{controller.findall}">
-        <h:column><h:outputText value="#{einMelder.nachname}"/></h:column>
-    </h:dataTable>
-      
+    <h:form>
+        <h:inputText id="name" value="#{person.name}" />
+        <br/>
+        <h:inputText id="vorname" value="#{person.vorname}" />
+        <br/>
+        <h:inputText id="telefon" value="#{person.telefon}" />
+        <br/>
+    <h:commandButton value="Absenden" action="#{indexController.geheSeite2}" />
+    </h:form>
+    
 </h:body>
 </html>
