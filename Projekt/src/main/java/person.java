@@ -8,11 +8,19 @@ import java.io.Serializable;
 
 public class person implements Serializable {
     
-    private String name;
+    private int nr;
+    private String nachname;
     private String vorname;
     private String telefon;
     private boolean berger;
     private boolean melder;
+    
+    public int getNr() {
+        return nr;
+    }
+
+    public void setNr(int nr) {
+        this.nr = nr;}
 
     public boolean getMelder() {
         return melder;
@@ -30,12 +38,12 @@ public class person implements Serializable {
         this.berger = berger;
     }
 
-    public String getName() {
-        return name;
+    public String getNachname() {
+        return nachname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
     }
 
     public String getVorname() {

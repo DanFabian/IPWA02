@@ -4,12 +4,9 @@
  */
 
 
+import jakarta.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import jakarta.inject.Named;
 
 /**
@@ -18,10 +15,12 @@ import jakarta.inject.Named;
  */
 @Named
 @Entity
+@ApplicationScoped
+
 public class Melder implements Serializable {
 
 @javax.persistence.Id
-private int nr;
+private int nr = 1;
 private String nachname;
 private String vorname;
 private String telefon;
