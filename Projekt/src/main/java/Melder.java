@@ -15,7 +15,7 @@ import jakarta.inject.Named;
  */
 @Named
 @Entity
-@ApplicationScoped
+
 
 public class Melder implements Serializable {
 

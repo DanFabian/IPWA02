@@ -5,13 +5,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-      <h:outputText value="Sie sind angemeldet als Vorname: #{melder.vorname}, Nachname: #{melder.nachname}, Telefon: #{melder.telefon}" />
-      <h:outputText value="#{controller.getFindall()}" />
+      <h:outputText value="Sie sind angemeldet als Vorname: #{berger.vorname}, Nachname: #{berger.nachname}, Telefon: #{melder.telefon}" />
+      
+      
+      <h:dataTable value = "#{controller.getFindall()}" var="alleMelder">
+   
+   <h:column>    				
+      <f:facet name = "header">Nachname</f:facet>    				
+      #{alleMelder.nachname}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Vorname</f:facet>
+      #{alleMelder.vorname}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Telefon</f:facet>
+      #{alleMelder.telefon}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Nr</f:facet>
+      #{alleMelder.nr}
+   </h:column>
+</h:dataTable>
     </body>
 </html>

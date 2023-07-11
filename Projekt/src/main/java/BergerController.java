@@ -7,37 +7,29 @@
  *
  * @author danie
  */
-
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 import jakarta.inject.Inject;
-
-
+import java.io.Serializable;
 @Named
 @ApplicationScoped
 
-public class PersonController {
-    
-    @Inject
-    private Melder melder;
-    @Inject
-    private person person;
+public class BergerController  implements Serializable{
+
+
+
+ 
     @Inject
     private Berger berger;
+    @Inject
+    private BergerDAO bergerDAO;
+    @Inject person person;
     
     
-    
-        public void erzeugeMelder(){
-       
-        melder.setNachname(person.getNachname());
-        melder.setVorname(person.getVorname());
-        melder.setTelefon(person.getTelefon());
-    }
-    
-        public void erzeugeBerger(){
-       
+    public void saveBerger(){
         berger.setNachname(person.getNachname());
         berger.setVorname(person.getVorname());
-       
+        bergerDAO.saveBerger(berger);
     }
-}
+}    
+

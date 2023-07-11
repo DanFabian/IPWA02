@@ -63,4 +63,18 @@ public class Controller {
         
         
     }
+    
+    public void saveBerger(Berger neuerBerger)
+    {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t= em.getTransaction();
+        
+        t.begin();
+        em.persist(neuerBerger);
+        t.commit();
+        
+        em.close();
+        
+        
+    }
 }

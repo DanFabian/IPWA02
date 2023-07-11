@@ -34,6 +34,7 @@ public class AuswahlController implements Serializable{
     
     public String geheSeite(){
         personController.erzeugeMelder();
+       
         return "melden";
     }
     
