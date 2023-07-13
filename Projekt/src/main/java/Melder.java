@@ -8,6 +8,10 @@ import jakarta.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import jakarta.inject.Named;
+import java.util.List;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,7 +24,8 @@ import jakarta.inject.Named;
 public class Melder implements Serializable {
 
 @javax.persistence.Id
-private int nr = 1;
+@GeneratedValue(strategy = GenerationType.AUTO)
+private int nr;
 private String nachname;
 private String vorname;
 private String telefon;

@@ -29,13 +29,13 @@ import javax.persistence.EntityTransaction;
 public class Controller {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
    
-    public List<Melder> getFindall() 
+    public List<Netz> getFindall() 
         { 
             EntityManager em = emf.createEntityManager();
-            Query abfrage = em.createQuery("SELECT a FROM Melder a");
-            List<Melder> alleMelder = abfrage.getResultList();
+            Query abfrage = em.createQuery("SELECT a FROM Netz a");
+            List<Netz> alleNetze = abfrage.getResultList();
             em.close();
-            return alleMelder;
+            return alleNetze;
         
     }
     

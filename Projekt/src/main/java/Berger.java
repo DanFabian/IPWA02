@@ -8,7 +8,7 @@
  * @author danie
  */
 
-import jakarta.enterprise.context.ApplicationScoped;
+
 import jakarta.inject.Named;
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -26,6 +26,9 @@ public class Berger implements Serializable{
     private int nr;
     private String nachname;
     private String vorname;
+    private String telefon;
+
+    
 
      public int getNr() {
         return nr;
@@ -49,6 +52,14 @@ public class Berger implements Serializable{
 
     public void setVorname(String vorname) {
         this.vorname = vorname;
+    }
+    
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
     }
     
     

@@ -20,7 +20,8 @@ public class AuswahlController implements Serializable{
    
     @Inject
     private PersonController personController;
-  
+    
+    
     
     private String auswahl;
 
@@ -33,9 +34,15 @@ public class AuswahlController implements Serializable{
     }
     
     public String geheSeite(){
-        personController.erzeugeMelder();
+        if (auswahl.equals("Melden")){
+          
+            return "melden";
+        }
+        else if (auswahl.equals("Bergen")){
+            return "bergen";
+        }
        
-        return "melden";
+        return "auswahl";
     }
     
 }
