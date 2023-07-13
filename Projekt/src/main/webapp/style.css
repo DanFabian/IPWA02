@@ -2,7 +2,7 @@ body {
   font-family: Arial;
   text-align: center;
 }
-
+/*
 h1{
   font-size: 1.7em;
 }
@@ -24,7 +24,7 @@ h2{
 select.hideDisabled option[disabled] {
     display: none;
 }
-/*
+
 table#artikel {
         width: 95%;
         background-color: lightgrey;
