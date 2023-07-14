@@ -29,5 +29,27 @@ public class BergerDAO {
             return alleNetze;
         
     }
+    
+    public List<String> zeigeBergerNetze() 
+        { 
+            EntityManager em = emf.createEntityManager();
+            Query abfrage = em.createQuery("SELECT a from Berger a JOIN a.netzList b WHERE b.status='bergungbevorstehend'");
+            
+            List<String> alleBerger = abfrage.getResultList();
+            em.close();
+            return alleBerger;
+        
+    }
+    
+    public List<BergerNetze> zeigeBergerNetze() 
+        { 
+            EntityManager em = emf.createEntityManager();
+            Query abfrage = em.createQuery("SELECT a from Berger a JOIN a.netzList b WHERE b.status='bergungbevorstehend'");
+            List<String> alleBerger = abfrage.getResultList();
+            Query abfrage2 = em.createQuery("SELECT a from Netz a WHERE a.status='bergungbevorstehend'");
+            em.close();
+            return alleBerger;
+        
+    }
 }
     

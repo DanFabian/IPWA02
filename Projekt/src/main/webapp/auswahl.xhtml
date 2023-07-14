@@ -23,9 +23,9 @@
         <h:form>
         <h:selectOneMenu value="#{auswahlController.auswahl}" styleClass="hideDisabled">
             <f:selectItem itemValue="Melden" itemLabel="Ein Netz melden"></f:selectItem>
-            <f:selectItem itemValue="Bergen" itemLabel="Ein Netz bergen" ></f:selectItem>
             <f:selectItem itemDisabled = "#{person.melder}" itemValue="Bergen" itemLabel="Ein Netz bergen" ></f:selectItem>
-       
+            <f:selectItem itemDisabled = "#{person.melder}" itemValue="Geborgen" itemLabel="Ein Netz als geborgen melden" ></f:selectItem>
+            <f:selectItem itemDisabled = "#{person.melder}" itemValue="Anzeigen" itemLabel="Schauen welche Netze von wem geborgen werden" ></f:selectItem>
         </h:selectOneMenu>
     
         <h:commandButton value="Auswahl" action="#{auswahlController.geheSeite}" />

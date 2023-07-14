@@ -14,38 +14,45 @@
       <br/>
       
       <h:form>
-      <h:dataTable value = "#{bergerDAO.zeigeNetzeGemeldet()}" var="alleNetze">
-   
+      <h:dataTable value = "#{bergerDAO.zeigeBergerNetze()}" var="alleBerger" >
+         <!--
         <h:column>    				
             <f:facet name = "header">Beschreibung</f:facet>    				
-            #{alleNetze.beschreibung}
+            #{alleBerger.beschreibung}
             
         </h:column>
    
         <h:column>
             <f:facet name = "header">Koordinaten Nord</f:facet>
-            #{alleNetze.nord}
+            #{alleBerger.nord}
         </h:column>
    
         <h:column>
             <f:facet name = "header">Koordinaten Süd</f:facet>
-            #{alleNetze.sued}
+            #{alleBerger.sued}
         </h:column>
         
          <h:column>
             <f:facet name = "header">Groesse</f:facet>
-            #{alleNetze.groesse}
+            #{alleBerger.groesse}
         </h:column>
         
          <h:column>
             <f:facet name = "header">Status</f:facet>
-            #{alleNetze.status}
+            #{alleBerger.status}
+        </h:column>
+         --> 
+          <h:column>
+            <f:facet name = "header">Nachname</f:facet>
+                #{alleBerger.nachname}
+        </h:column>
+         
+          <h:column>
+            <f:facet name = "header">Status</f:facet>
+            #{alleBerger.netzList().get()}
         </h:column>
         
-           <h:column>
-            <f:facet name = "header">Auswahl</f:facet>
-            <h:commandButton value="Auswahl" action="#{bergenController.NetzBergen(alleNetze)}" />
-        </h:column>
+          
     </h:dataTable>
       </h:form>
 </h:body>

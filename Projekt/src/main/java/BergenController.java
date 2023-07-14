@@ -22,6 +22,25 @@ import javax.persistence.Query;
 
 public class BergenController implements Serializable{
    
+  
+    @Inject
+    private NetzDAO netzDAO;
+    @Inject  
+    private Netz netz;
+    @Inject
+    private person person;
+    @Inject
+    private Berger berger;
+    @Inject
+    private BergerDAO bergerDAO;
     
+    public String NetzBergen(Netz auswahlNetz) {
+         berger.setNachname(person.getNachname());
+         berger.setVorname(person.getVorname());
+         berger.setTelefon(person.getTelefon());
+         auswahlNetz.setStatus("bergungbevorstehend");
+         netzDAO.saveNetzBerger(auswahlNetz, berger);
+       return "test"; 
+    }
     
 }

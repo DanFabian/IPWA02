@@ -34,14 +34,19 @@ public class AuswahlController implements Serializable{
     }
     
     public String geheSeite(){
-        if (auswahl.equals("Melden")){
-          
-            return "melden";
+        switch (auswahl) {
+            case "Melden":
+                return "melden";
+            case "Bergen":
+                return "bergen";
+            case "Geborgen":
+                return "geborgen";
+            case "Anzeigen":
+                return "anzeigen";
+            default:
+                break;
         }
-        else if (auswahl.equals("Bergen")){
-            return "bergen";
-        }
-       
+        
         return "auswahl";
     }
     

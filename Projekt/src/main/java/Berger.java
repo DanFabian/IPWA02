@@ -11,10 +11,14 @@
 
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Named
@@ -28,6 +32,18 @@ public class Berger implements Serializable{
     private String vorname;
     private String telefon;
 
+    @OneToMany(fetch=FetchType.EAGER)
+    private List<Netz> netzList = new ArrayList<>(0);
+
+    public List<Netz> getNetzList() {
+        return netzList;
+    }
+
+    public void setNetzList(List<Netz> netzList) {
+        this.netzList = netzList;
+    }
+
+    
     
 
      public int getNr() {

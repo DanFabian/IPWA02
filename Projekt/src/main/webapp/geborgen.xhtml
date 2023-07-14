@@ -12,9 +12,14 @@
       
       <h:outputText value="Sie sind angemeldet als Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
       <br/>
-      
+       <br/>
+        <br/>
+        <h:outputText value="Bitte suchen Sie ein Netz aus das Sie als geborgen melden wollen:" />
+      <br/>
+       <br/>
+        <br/>
       <h:form>
-      <h:dataTable value = "#{bergerDAO.zeigeNetzeGemeldet()}" var="alleNetze">
+      <h:dataTable value = "#{netzDAO.zeigeNetzeBergungBevorstehend()}" var="alleNetze">
    
         <h:column>    				
             <f:facet name = "header">Beschreibung</f:facet>    				
@@ -44,7 +49,7 @@
         
            <h:column>
             <f:facet name = "header">Auswahl</f:facet>
-            <h:commandButton value="Auswahl" action="#{bergenController.NetzBergen(alleNetze)}" />
+            <h:commandButton value="Auswahl" action="#{geborgenController.NetzGeborgen(alleNetze)}" />
         </h:column>
     </h:dataTable>
       </h:form>

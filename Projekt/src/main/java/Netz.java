@@ -16,6 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -33,22 +34,8 @@ public class Netz implements Serializable{
     private int groesse;
     private String status;
     
+   
     
-    @OneToMany
-    private List<Melder> melderList = new ArrayList<>(0);
-    
-    public void melderHinzu(Melder melder){
-        melderList.add(melder);
-    }
-
-    public List<Melder> getMelderList() {
-        
-        return melderList;
-    }
-
-    public void setMelder(List<Melder> melderList) {
-        this.melderList = melderList;
-    }
     
     public int getNr() {
         return nr;

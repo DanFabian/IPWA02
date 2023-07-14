@@ -8,6 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import jakarta.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,17 @@ private int nr;
 private String nachname;
 private String vorname;
 private String telefon;
+
+@OneToMany
+private List<Netz> netzList = new ArrayList<>(0);
+
+    public List<Netz> getNetzList() {
+        return netzList;
+    }
+
+    public void setNetzList(List<Netz> netzList) {
+        this.netzList = netzList;
+    }
 
 public int getNr()
 {

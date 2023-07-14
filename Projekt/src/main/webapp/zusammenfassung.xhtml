@@ -7,12 +7,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<head>
+    <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body>
-      <h:outputText value="Sie sind angemeldet als Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
+    </head>
+    <body>
+      <h:outputText value="Wir haben folgende Daten gespeichert: " />
+      <h:outputText value="#{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}"/>
       
       
     <h:dataTable value = "#{controller.getFindall()}" var="alleNetze">
@@ -41,10 +42,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <f:facet name = "header">Status</f:facet>
             #{alleNetze.status}
         </h:column>
-        </h:dataTable>
+        
       
-      <h:form>
-          <h:commandButton value="Index" action="index" />
-      </h:form>
+    </h:dataTable>
+      
+      
 </body>
 </html>
