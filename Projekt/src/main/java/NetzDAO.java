@@ -68,7 +68,7 @@ public class NetzDAO {
         
         t.begin();
         em.merge(gemeldetesNetz);
-        em.persist(neuerBerger);
+        em.merge(neuerBerger);
         t.commit();
         
         em.close();
@@ -110,5 +110,13 @@ public class NetzDAO {
             int lastIndex = alleNetze.size() -1;
          
             return alleNetze;
+    }
+   
+   public List<Netz> NetzzuBerger(Berger berger)
+    {
+            List <Netz> netz = berger.getNetzList();
+         
+         
+            return netz;
     }
 }

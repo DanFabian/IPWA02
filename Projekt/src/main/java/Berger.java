@@ -35,13 +35,8 @@ public class Berger implements Serializable{
     @OneToMany(fetch=FetchType.EAGER)
     private List<Netz> netzList = new ArrayList<>(0);
 
-    public List<Netz> getNetzList() {
-        return netzList;
-    }
-
-    public void setNetzList(List<Netz> netzList) {
-        this.netzList = netzList;
-    }
+    
+    
 
     
     
@@ -77,7 +72,14 @@ public class Berger implements Serializable{
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
+
+    public List<Netz> getNetzList() {
+        return netzList;
+    }
+
+    public void setNetzList(List<Netz> netzList) {
+        this.netzList = netzList;
     
-    
+    }
     
 }

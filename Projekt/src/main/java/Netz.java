@@ -37,6 +37,7 @@ public class Netz implements Serializable{
    
     
     
+    
     public int getNr() {
         return nr;
     }

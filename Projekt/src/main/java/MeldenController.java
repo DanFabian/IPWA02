@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author danie
- */
 
 import jakarta.inject.Inject;
 import java.io.Serializable;
@@ -24,7 +15,17 @@ public class MeldenController implements Serializable{
    private int groesse;
    private String status = "gemeldet";
 
-    
+      
+    @Inject
+    private NetzDAO netzDAO;
+    @Inject  
+    private Netz netz;
+    @Inject
+    private person person;
+    @Inject
+    private Melder melder;
+    @Inject
+    private MelderDAO melderDAO;
 
    
 
@@ -68,22 +69,7 @@ public class MeldenController implements Serializable{
         this.status = status;
     }
     
-    
-    @Inject
-    private NetzDAO netzDAO;
-    @Inject  
-    private Netz netz;
-    @Inject
-    private person person;
-    @Inject
-    private Melder melder;
-    @Inject
-    private MelderDAO melderDAO;
-    
-    
-    
-    
-    
+  
     public String saveNetzMelder(){
         
         

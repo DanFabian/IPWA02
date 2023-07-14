@@ -30,26 +30,16 @@ public class BergerDAO {
         
     }
     
-    public List<String> zeigeBergerNetze() 
+    public List<Berger> zeigeBergerNetze() 
         { 
             EntityManager em = emf.createEntityManager();
             Query abfrage = em.createQuery("SELECT a from Berger a JOIN a.netzList b WHERE b.status='bergungbevorstehend'");
             
-            List<String> alleBerger = abfrage.getResultList();
+            List<Berger> alleBerger = abfrage.getResultList();
             em.close();
             return alleBerger;
         
     }
     
-    public List<BergerNetze> zeigeBergerNetze() 
-        { 
-            EntityManager em = emf.createEntityManager();
-            Query abfrage = em.createQuery("SELECT a from Berger a JOIN a.netzList b WHERE b.status='bergungbevorstehend'");
-            List<String> alleBerger = abfrage.getResultList();
-            Query abfrage2 = em.createQuery("SELECT a from Netz a WHERE a.status='bergungbevorstehend'");
-            em.close();
-            return alleBerger;
-        
-    }
 }
     
