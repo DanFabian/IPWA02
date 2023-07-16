@@ -90,6 +90,6 @@ public class MeldenController implements Serializable{
         
         
         
-        return "test";
+        return "test.xhtml";
     }
 }
