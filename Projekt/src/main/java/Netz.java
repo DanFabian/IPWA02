@@ -27,10 +27,10 @@ public class Netz implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int nr;
+    private int id;
     private String  beschreibung;
-    private int nord;
-    private int sued;
+    private String breite;
+    private String laenge;
     private int groesse;
     private String status;
     
@@ -38,12 +38,12 @@ public class Netz implements Serializable{
     
     
     
-    public int getNr() {
-        return nr;
+    public int getId() {
+        return id;
     }
 
-    public void setNr(int nr) {
-        this.nr = nr;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBeschreibung() {
@@ -54,20 +54,20 @@ public class Netz implements Serializable{
         this.beschreibung = beschreibung;
     }
 
-    public int getNord() {
-        return nord;
+    public String getBreite() {
+        return breite;
     }
 
-    public void setNord(int nord) {
-        this.nord = nord;
+    public void setBreite(String breite) {
+        this.breite = breite;
     }
 
-    public int getSued() {
-        return sued;
+    public String getLaenge() {
+        return laenge;
     }
 
-    public void setSued(int sued) {
-        this.sued = sued;
+    public void setLaenge(String laenge) {
+        this.laenge = laenge;
     }
 
     public int getGroesse() {

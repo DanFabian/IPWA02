@@ -2,16 +2,16 @@
 import jakarta.inject.Inject;
 import java.io.Serializable;
 
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 
 @Named
-@ApplicationScoped
+@SessionScoped
 
 public class MeldenController implements Serializable{
    private String beschreibung;
-   private int nord;
-   private int sued;
+   private String breite;
+   private String laenge;
    private int groesse;
    private String status = "gemeldet";
 
@@ -37,20 +37,20 @@ public class MeldenController implements Serializable{
         this.beschreibung = beschreibung;
     }
 
-    public int getNord() {
-        return nord;
+    public String getBreite() {
+        return breite;
     }
 
-    public void setNord(int nord) {
-        this.nord = nord;
+    public void setBreite(String breite) {
+        this.breite = breite;
     }
 
-    public int getSued() {
-        return sued;
+    public String getLaenge() {
+        return laenge;
     }
 
-    public void setSued(int sued) {
-        this.sued = sued;
+    public void setLaenge(String laenge) {
+        this.laenge = laenge;
     }
     
      public int getGroesse() {
@@ -74,8 +74,8 @@ public class MeldenController implements Serializable{
         
         
         netz.setBeschreibung(this.beschreibung);
-        netz.setNord(this.nord);
-        netz.setSued(this.sued);
+        netz.setBreite(this.breite);
+        netz.setLaenge(this.laenge);
         netz.setGroesse(this.groesse);
         netz.setStatus(this.status);
         

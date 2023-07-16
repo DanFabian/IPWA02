@@ -18,21 +18,32 @@
       <h:form>
             <h:outputLabel for="beschreibung">Beschreibung</h:outputLabel>
             <br/>
-            <h:inputText id="beschreibung" value="#{meldenController.beschreibung}" />
+            <h:inputText id="beschreibung" value="#{meldenController.beschreibung}" required="true"/>
             <br/>
-            <h:outputLabel for="koordinatenNord">Koordinaten Nord</h:outputLabel>
+            <h:outputLabel for="breite">Breite</h:outputLabel>
             <br/>
-            <h:inputText id="koordinatenNord" value="#{meldenController.nord}" />
+            <p:inputNumber id="breite" value="#{meldenController.breite}" minValue="-90"
+                                maxValue="90" decimalPlaces="6"  > 
+            <!-- <f:validateRegex pattern="/^[+-]?(([1-8]?[0-9])(\.[0-9]{1,6})?|90(\.0{1,6})?)$/"></f:validateRegex> -->
+            </p:inputNumber>
             <br/>
-            <h:outputLabel for="koordinatenSued">Koordinaten Süd</h:outputLabel>
-            <br/>
-            <h:inputText id="koordinatenSued" value="#{meldenController.sued}" />
+            <p:outputLabel for="laenge">Länge</p:outputLabel>
+             <br/>
+             <p:inputNumber id="laenge" value="#{meldenController.laenge}" minValue="-180"
+                                maxValue="180" decimalPlaces="6"  > 
+
+            <!-- <f:validateRegex pattern="^(\+|W)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$"></f:validateRegex> -->
+             </p:inputNumber>
+           
+          
+            
+            
             <br/>
             <h:outputLabel for="groesse">Geschätzte Grösse</h:outputLabel>
             <br/>
              <h:inputText id="grösse" value="#{meldenController.groesse}" />
             <br/>
-            <h:commandButton value="Absenden" action="#{meldenController.saveNetzMelder()}" />
+            <h:commandButton value="Submit" action="#{meldenController.saveNetzMelder()}" />
       </h:form>
      
 </h:body>

@@ -18,18 +18,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:dataTable value = "#{controller.getFindall()}" var="alleNetze">
    
         <h:column>    				
-            <f:facet name = "header">Nachname</f:facet>    				
+            <f:facet name = "header">Beschreibung</f:facet>    				
             #{alleNetze.beschreibung}
         </h:column>
    
         <h:column>
-            <f:facet name = "header">Vorname</f:facet>
-            #{alleNetze.nord}
+            <f:facet name = "header">Länge</f:facet>
+            #{alleNetze.laenge}
         </h:column>
    
         <h:column>
-            <f:facet name = "header">Telefon</f:facet>
-            #{alleNetze.sued}
+            <f:facet name = "header">Breite</f:facet>
+            #{alleNetze.breite}
         </h:column>
         
          <h:column>
