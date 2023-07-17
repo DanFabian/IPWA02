@@ -1,12 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author danie
- */
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
@@ -17,10 +9,6 @@ import java.io.Serializable;
 @SessionScoped
 
 public class AuswahlController implements Serializable{
-    
-   
-    
-    
     
     private String auswahl;
 

@@ -17,7 +17,6 @@ public class BergenController implements Serializable{
   
     @Inject
     private NetzDAO netzDAO;
-
     @Inject
     private person person;
     @Inject

@@ -19,39 +19,39 @@
        <br/>
         <br/>
       <h:form>
-      <h:dataTable value = "#{netzDAO.zeigeNetzeBergungBevorstehend()}" var="alleNetze">
+      <p:dataTable value = "#{netzDAO.zeigeNetzeBergungBevorstehend()}" var="alleNetze">
    
-        <h:column>    				
+        <p:column>    				
             <f:facet name = "header">Beschreibung</f:facet>    				
             #{alleNetze.beschreibung}
             
-        </h:column>
+        </p:column>
    
-        <h:column>
-            <f:facet name = "header">Koordinaten Nord</f:facet>
-            #{alleNetze.nord}
-        </h:column>
+        <p:column>
+            <f:facet name = "header">Geografische Breite</f:facet>
+            #{alleNetze.breite}
+        </p:column>
    
-        <h:column>
-            <f:facet name = "header">Koordinaten Süd</f:facet>
-            #{alleNetze.sued}
-        </h:column>
+        <p:column>
+            <f:facet name = "header">Geografische Länge</f:facet>
+            #{alleNetze.laenge}
+        </p:column>
         
-         <h:column>
+         <p:column>
             <f:facet name = "header">Groesse</f:facet>
             #{alleNetze.groesse}
-        </h:column>
+        </p:column>
         
-         <h:column>
+         <p:column>
             <f:facet name = "header">Status</f:facet>
             #{alleNetze.status}
-        </h:column>
+        </p:column>
         
-           <h:column>
+           <p:column>
             <f:facet name = "header">Auswahl</f:facet>
-            <h:commandButton value="Auswahl" action="#{geborgenController.NetzGeborgen(alleNetze)}" />
-        </h:column>
-    </h:dataTable>
+            <p:commandButton value="Auswahl" ajax="false" action="#{geborgenController.NetzGeborgen(alleNetze)}" />
+        </p:column>
+    </p:dataTable>
       </h:form>
 </h:body>
 </html>   

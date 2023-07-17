@@ -16,18 +16,18 @@
       
       
       <h:form>
-            <h:outputLabel for="beschreibung">Beschreibung</h:outputLabel>
+            <h:outputLabel for="beschreibung">Beschreibung des Netzes</h:outputLabel>
             <br/>
-            <p:inputText id="beschreibung" value="#{meldenController.beschreibung}" required="true"/>
+            <p:inputText id="beschreibung" value="#{meldenController.beschreibung}" required="true" />
             <br/>
-            <h:outputLabel for="breite">Breite</h:outputLabel>
+            <h:outputLabel for="breite">Geografische Breite in Dezimalformat (-)90.123456 </h:outputLabel>
             <br/>
             <p:inputNumber id="breite" value="#{meldenController.breite}" minValue="-90"
                                 maxValue="90" decimalPlaces="6" required="true" > 
             <!-- <f:validateRegex pattern="/^[+-]?(([1-8]?[0-9])(\.[0-9]{1,6})?|90(\.0{1,6})?)$/"></f:validateRegex> -->
             </p:inputNumber>
             <br/>
-            <p:outputLabel for="laenge">Länge</p:outputLabel>
+            <p:outputLabel for="laenge">Geografische Länge in Dezimalformat (-)180,123456</p:outputLabel>
              <br/>
              <p:inputNumber id="laenge" value="#{meldenController.laenge}" minValue="-180"
                                 maxValue="180" decimalPlaces="6" required="true" > 
@@ -41,7 +41,7 @@
             <br/>
             <h:outputLabel for="groesse">Geschätzte Grösse</h:outputLabel>
             <br/>
-             <p:inputText id="grösse" value="#{meldenController.groesse}" required="true"/>
+             <p:inputText id="grösse" value="#{meldenController.groesse}" required="true" />
             <br/>
             <p:commandButton value="Submit" ajax="false" action="#{meldenController.saveNetzMelder()}"  />
       </h:form>

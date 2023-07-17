@@ -16,31 +16,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       <h:outputText value="#{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}"/>
       
       
-    <h:dataTable value = "#{controller.getFindall()}" var="alleNetze">
+    <h:dataTable value = "#{netz}" var="netz">
    
         <h:column>    				
             <f:facet name = "header">Nachname</f:facet>    				
-            #{alleNetze.beschreibung}
+            #{netz.beschreibung}
         </h:column>
    
         <h:column>
             <f:facet name = "header">Vorname</f:facet>
-            #{alleNetze.nord}
+            #{netz.laenge}
         </h:column>
    
         <h:column>
             <f:facet name = "header">Telefon</f:facet>
-            #{alleNetze.sued}
+            #{netz.breite}
         </h:column>
         
          <h:column>
             <f:facet name = "header">Groesse</f:facet>
-            #{alleNetze.groesse}
+            #{netz.groesse}
         </h:column>
         
          <h:column>
             <f:facet name = "header">Status</f:facet>
-            #{alleNetze.status}
+            #{netz.status}
         </h:column>
         
       

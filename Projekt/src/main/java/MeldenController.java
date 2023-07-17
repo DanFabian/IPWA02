@@ -89,7 +89,7 @@ public class MeldenController implements Serializable{
         
         
         
-        return "test.xhtml";
+        return "zusammenfassung.xhtml";
                 
     }
 }
