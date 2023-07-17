@@ -1,12 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author danie
- */
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 import jakarta.inject.Inject;
@@ -14,6 +6,7 @@ import jakarta.inject.Inject;
 
 @Named
 @ApplicationScoped
+
 public class indexController {
     
     private String auswahl;
@@ -30,7 +23,7 @@ public class indexController {
         this.auswahl = auswahl;
     }
 
-    public String geheSeite2() {
+    public String geheSeite() {
         if (person.getTelefon().equalsIgnoreCase("")){
            person.setBerger(false);
             person.setMelder(true);}

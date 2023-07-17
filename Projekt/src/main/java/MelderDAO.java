@@ -1,10 +1,14 @@
 
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
+import java.util.List;
+import java.util.Objects;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,6 +25,10 @@ import javax.persistence.Persistence;
 public class MelderDAO {
     
     
+
+    
+    
+    
     
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
    
@@ -32,6 +40,7 @@ public class MelderDAO {
     {
         EntityManager em = emf.createEntityManager();
         EntityTransaction t= em.getTransaction();
+       
         
         t.begin();
         em.persist(neuerMelder);
@@ -39,6 +48,23 @@ public class MelderDAO {
         
         em.close();
     }
+    
+    public List alleMelder()
+            
+    {
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        
+        Query abfrage = em.createQuery("SELECT Distinct a FROM Melder a");
+        List<Melder> alleMelder = abfrage.getResultList();
+        em.close();
+        
+        return alleMelder;
+        
+    }
+    
+    
 }
     
     

@@ -16,15 +16,7 @@ public class GeborgenController implements Serializable{
     
     @Inject
     private NetzDAO netzDAO;
-    @Inject  
-    private Netz netz;
-    @Inject
-    private person person;
-    @Inject
-    private Berger berger;
-    @Inject
-    private BergerDAO bergerDAO;
-    
+
     public String NetzGeborgen(Netz auswahlNetz) {
          
          auswahlNetz.setStatus("geborgen");

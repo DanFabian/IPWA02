@@ -24,10 +24,9 @@ import javax.persistence.Query;
 
 
 public class NetzDAO {
+
     @Inject
-    private Netz netz;
-    @Inject
-    private Melder melder;
+    private MelderDAO melderDAO;
    
     
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
@@ -48,16 +47,36 @@ public class NetzDAO {
     
     public void saveNetzMelder(Netz neuesNetz, Melder neuerMelder)
     {
-      
+        boolean vorhanden = false;
         EntityManager em = emf.createEntityManager();
+        
+        
+        
         EntityTransaction t = em.getTransaction();
         
+        List<Melder> alleMelder = melderDAO.alleMelder();
+        for (Melder m : alleMelder) {
+            if (m.equals(neuerMelder)){
+            vorhanden = true;}
+        else{ vorhanden=false;}
+        }
+        if (vorhanden = true)
+        {neuerMelder.getNetzList().add(neuesNetz);
+                t.begin();
+                em.merge(neuerMelder);
+                em.persist(neuesNetz);
+                t.commit();
+            em.close();}
+        else{
+        neuerMelder.getNetzList().add(neuesNetz);       
         t.begin();
         em.persist(neuesNetz);
         em.persist(neuerMelder);
         t.commit();
         
-        em.close();
+        em.close();}
+       
+                
     }
     
     public void saveNetzBerger(Netz gemeldetesNetz, Berger neuerBerger)
@@ -115,6 +134,14 @@ public class NetzDAO {
    public List<Netz> NetzzuBerger(Berger berger)
     {
             List <Netz> netz = berger.getNetzList();
+         
+         
+            return netz;
+    }
+   
+   public List<Netz> NetzzuMelder(Melder melder)
+    {
+            List <Netz> netz = melder.getNetzList();
          
          
             return netz;

@@ -11,13 +11,23 @@
 
 <h:body>
     <h:form>
-        <h:inputText id="name" value="#{person.nachname}" />
+        <p:outputLabel for="nachname" value="Geben Sie Ihren Nachnamen ein:"/>
         <br/>
-        <h:inputText id="vorname" value="#{person.vorname}" />
+        <p:inputText id="nachname" value="#{person.nachname}" required="true"/>
         <br/>
-        <h:inputText id="telefon" value="#{person.telefon}" />
+         <p:outputLabel for="vorname" value="Geben Sie Ihren Vornamen ein:"/>
+         <br/>
+        <p:inputText id="vorname" value="#{person.vorname}" required="true" />
         <br/>
-    <h:commandButton value="Absenden" action="#{indexController.geheSeite2}" />
+         <p:outputLabel for="telefon" value="Geben Sie Ihre Telefonnummer ein:"/>
+         <br/>
+        <p:inputMask id="telefon" value="#{person.telefon}" mask="(+99)999 9999999"/>
+        <br/>
+        <p:outputLabel  value="Felder mit * müssen ausgefüllt werden"/>
+        
+        <br/>
+   
+    <p:commandButton value="Absenden" ajax="false" action="#{indexController.geheSeite()}" />
     </h:form>
     
 </h:body>

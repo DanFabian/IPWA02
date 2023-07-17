@@ -24,8 +24,7 @@ public class MeldenController implements Serializable{
     private person person;
     @Inject
     private Melder melder;
-    @Inject
-    private MelderDAO melderDAO;
+
 
    
 
@@ -91,5 +90,6 @@ public class MeldenController implements Serializable{
         
         
         return "test.xhtml";
+                
     }
 }

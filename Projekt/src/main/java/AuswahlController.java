@@ -8,18 +8,17 @@
  * @author danie
  */
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 import jakarta.inject.Inject;
 import java.io.Serializable;
 
 @Named
-@ApplicationScoped
+@SessionScoped
 
 public class AuswahlController implements Serializable{
     
    
-    @Inject
-    private PersonController personController;
     
     
     

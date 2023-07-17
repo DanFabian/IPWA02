@@ -1,6 +1,8 @@
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.util.List;
 
 @Named
 @ApplicationScoped
@@ -8,6 +10,8 @@ import java.io.Serializable;
 
 public class person implements Serializable {
     
+  
+
     private int nr;
     private String nachname;
     private String vorname;
@@ -61,7 +65,6 @@ public class person implements Serializable {
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
-    
     
     
 }

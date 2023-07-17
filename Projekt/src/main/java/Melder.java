@@ -4,7 +4,7 @@
  */
 
 
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import jakarta.inject.Named;
@@ -23,10 +23,24 @@ import javax.persistence.OneToMany;
 
 
 public class Melder implements Serializable {
+    
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof Melder) {
+            Melder m = (Melder) obj;
+            if (m.getNachname().equals(this.nachname) &&
+                    m.getVorname().equals(this.vorname) &&
+                    m.getTelefon().equals(this.telefon))
+                return true;
+        }
+        return false;
+    }
+    
+
 
 @javax.persistence.Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private int nr;
+private int id;
 private String nachname;
 private String vorname;
 private String telefon;
@@ -42,9 +56,9 @@ private List<Netz> netzList = new ArrayList<>(0);
         this.netzList = netzList;
     }
 
-public int getNr()
+public int getId()
 {
-return nr;
+return id;
 }
 
 public String getNachname()
@@ -62,9 +76,9 @@ public String getTelefon()
 return telefon;
 }
 
-public void setNr (int nr)
+public void setId (int id)
 {
-    this.nr=nr;
+    this.id=id;
 }
 
 public void setNachname(String nachname)
@@ -81,5 +95,6 @@ public void setTelefon(String telefon)
 {
     this.telefon=telefon;
 }
-    
+
+
 }

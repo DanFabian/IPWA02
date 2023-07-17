@@ -46,5 +46,60 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       <h:form>
           <h:commandButton value="Index" action="index" />
       </h:form>
+      
+       <h:form>
+      <h:dataTable value = "#{melderDAO.alleMelder()}" var="alleMelder" >
+        
+   
+        <h:column>
+            <f:facet name = "header">Nachname</f:facet>
+            #{alleMelder.nachname}
+        </h:column>
+   
+        <h:column>
+            <f:facet name = "header">Vorname</f:facet>
+            #{alleMelder.vorname}
+        </h:column>
+        
+         <h:column>
+            <f:facet name = "header">Telefon</f:facet>
+            #{alleMelder.telefon}
+        </h:column>
+        
+  
+      
+          <h:column>
+            <f:facet name = "header">Netze</f:facet>
+        
+                  
+      
+                    <h:form>
+                        <h:dataTable value = "#{netzDAO.NetzzuMelder(alleMelder)}" var="alleNetze" >
+                            
+                            <h:column>
+                            <f:facet name = "header">Beschreibung</f:facet>
+                            #{alleNetze.beschreibung}
+                            </h:column>
+                            
+                            <h:column>
+                            <f:facet name = "header">Status</f:facet>
+                            #{alleNetze.status}
+                            </h:column>
+                            
+                            <h:column>
+                            <f:facet name = "header">Grösse</f:facet>
+                            #{alleNetze.groesse}
+                            </h:column>
+                            
+                        </h:dataTable>
+                    </h:form>
+            </h:column>        
+            
+        
+       
+         
+        
+          </h:dataTable>
+       </h:form>
 </body>
 </html>

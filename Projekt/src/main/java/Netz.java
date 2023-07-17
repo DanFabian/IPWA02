@@ -25,6 +25,18 @@ import javax.persistence.OneToMany;
 
 public class Netz implements Serializable{
     
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof Netz) {
+            Netz n = (Netz) obj;
+            if (n.getBeschreibung().equals(this.beschreibung) &&
+                    n.getBreite().equals(this.breite) &&
+                    n.getLaenge().equals(this.laenge))
+                return true;
+        }
+        return false;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
