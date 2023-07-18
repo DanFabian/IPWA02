@@ -4,26 +4,45 @@
  */
 
 
-import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import java.io.Serializable;
 import javax.persistence.Entity;
-import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/**
- *
- * @author danie
- */
+
 @Named
 @Entity
 
-
 public class Melder implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String nachname;
+    private String vorname;
+    private String telefon;
+    
+    
+    @OneToMany
+    private List<Netz> netzList = new ArrayList<>(0);
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+
+    public int getId()
+    {
+    return id;
+    }
+
     @Override
     public boolean equals(Object obj){
         if(obj instanceof Melder) {
@@ -36,18 +55,6 @@ public class Melder implements Serializable {
         return false;
     }
     
-
-
-@javax.persistence.Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-private int id;
-private String nachname;
-private String vorname;
-private String telefon;
-
-@OneToMany
-private List<Netz> netzList = new ArrayList<>(0);
-
     public List<Netz> getNetzList() {
         return netzList;
     }
@@ -55,12 +62,10 @@ private List<Netz> netzList = new ArrayList<>(0);
     public void setNetzList(List<Netz> netzList) {
         this.netzList = netzList;
     }
+    
 
-public int getId()
-{
-return id;
-}
 
+   
 public String getNachname()
 {
 return nachname;
@@ -76,10 +81,8 @@ public String getTelefon()
 return telefon;
 }
 
-public void setId (int id)
-{
-    this.id=id;
-}
+
+
 
 public void setNachname(String nachname)
 {

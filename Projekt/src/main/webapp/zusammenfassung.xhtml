@@ -1,51 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
--->
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-      <h:outputText value="Wir haben folgende Daten gespeichert: " />
-      <h:outputText value="#{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}"/>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+   <title>ProjectNet</title>
+</h:head>
+<h:body>
+  
       
+      <h:outputText value="Sie sind angemeldet als Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
+      <br/>
       
-    <h:dataTable value = "#{netz}" var="netz">
-   
-        <h:column>    				
-            <f:facet name = "header">Nachname</f:facet>    				
-            #{netz.beschreibung}
-        </h:column>
-   
-        <h:column>
-            <f:facet name = "header">Vorname</f:facet>
-            #{netz.laenge}
-        </h:column>
-   
-        <h:column>
-            <f:facet name = "header">Telefon</f:facet>
-            #{netz.breite}
-        </h:column>
+      <h:form>
+      <p:dataTable tableStyle="width: auto;" value="#{letztesNetz}" >
         
-         <h:column>
-            <f:facet name = "header">Groesse</f:facet>
-            #{netz.groesse}
-        </h:column>
+   
+        <p:column>
+            <f:facet name = "header">Beschreibung</f:facet>
+            #{letztesNetz.beschreibung}
+        </p:column>
+   
+        <p:column>
+            <f:facet name = "header">Geografische Breite</f:facet>
+            #{letztesNetz.breite}
+        </p:column>
         
-         <h:column>
+        <p:column>
+            <f:facet name = "header">Geografische Länge</f:facet>
+            #{letztesNetz.laenge}
+        </p:column>
+        
+        <p:column>
+            <f:facet name = "header">Grösse</f:facet>
+            #{letztesNetz.groesse}
+        </p:column>
+          
+        <p:column>
             <f:facet name = "header">Status</f:facet>
-            #{netz.status}
-        </h:column>
-        
-      
-    </h:dataTable>
-      
-      
-</body>
+            #{letztesNetz.status}
+        </p:column>
+         
+      </p:dataTable>    
+           <p:commandButton value="Index" ajax="false" action="auswahl"  />
+      </h:form> 
+    </h:body>
 </html>

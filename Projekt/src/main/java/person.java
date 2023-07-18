@@ -1,8 +1,6 @@
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
-import java.util.List;
 
 @Named
 @ApplicationScoped

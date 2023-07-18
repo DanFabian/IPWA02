@@ -8,19 +8,16 @@
  * @author danie
  */
 
-import jakarta.inject.Named;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 
-@Named
+
 @Entity
 
 public class Netz implements Serializable{
@@ -39,22 +36,47 @@ public class Netz implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String  beschreibung;
     private String breite;
     private String laenge;
     private int groesse;
     private String status;
     
+    
+    @ManyToOne
+    @JoinColumn(name = "melder_id")
+    private Melder melder;
+    
+    @ManyToOne
+    @JoinColumn(name = "berger_id")
+    private Berger berger;
+   
+
+    public Melder getMelder() {
+        return melder;
+    }
+
+    public void setMelder(Melder melder) {
+        this.melder = melder;
+    }
+
+    public Berger getBerger() {
+        return berger;
+    }
+
+    public void setBerger(Berger berger) {
+        this.berger = berger;
+    }
    
     
     
     
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

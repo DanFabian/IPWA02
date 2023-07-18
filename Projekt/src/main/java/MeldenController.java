@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
+import java.util.List;
 
 @Named
 @SessionScoped
@@ -24,7 +25,10 @@ public class MeldenController implements Serializable{
     private person person;
     @Inject
     private Melder melder;
-
+    @Inject
+    private LetztesNetz letztesNetz;
+    @Inject
+    private MelderDAO melderDAO;
 
    
 
@@ -71,25 +75,41 @@ public class MeldenController implements Serializable{
   
     public String saveNetzMelder(){
         
+       
         
+        letztesNetz.setBeschreibung(this.beschreibung);
+        letztesNetz.setBreite(this.breite);
+        letztesNetz.setLaenge(this.laenge);
+        letztesNetz.setGroesse(this.groesse);
+        letztesNetz.setStatus(this.status);
+   
         netz.setBeschreibung(this.beschreibung);
         netz.setBreite(this.breite);
         netz.setLaenge(this.laenge);
         netz.setGroesse(this.groesse);
         netz.setStatus(this.status);
         
-        
+        melder.setId(1);
         melder.setNachname(person.getNachname());
         melder.setVorname(person.getVorname());
         melder.setTelefon(person.getTelefon());
        
+        /*List<Melder> alleMelder = melderDAO.alleMelder();
         
+        for (Melder m : alleMelder) {
+            if (m.equals(melder)){
+            
         
-        netzDAO.saveNetzMelder(netz, melder);
+            netzDAO.saveNetzMelder(netz, melder);
+            return "zusammenfassung";
+                }} */
+       
+        /*netzDAO.saveNetz(netz);*/
+        netzDAO.saveNetzMelderNeu(netz, melder);
+       
         
+        return "zusammenfassung";
         
-        
-        return "zusammenfassung.xhtml";
-                
+       
     }
 }

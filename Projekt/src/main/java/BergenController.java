@@ -21,15 +21,27 @@ public class BergenController implements Serializable{
     private person person;
     @Inject
     private Berger berger;
-
+    @Inject
+    private LetztesNetz letztesNetz;
+    
     
     public String NetzBergen(Netz auswahlNetz) {
-         berger.setNachname(person.getNachname());
-         berger.setVorname(person.getVorname());
-         berger.setTelefon(person.getTelefon());
-         auswahlNetz.setStatus("bergungbevorstehend");
+   
+        berger.setId(1);
+        berger.setNachname(person.getNachname());
+        berger.setVorname(person.getVorname());
+        berger.setTelefon(person.getTelefon());
+        auswahlNetz.setStatus("bergungbevorstehend");
+        
+        letztesNetz.setBeschreibung(auswahlNetz.getBeschreibung());
+        letztesNetz.setBreite(auswahlNetz.getBreite());
+        letztesNetz.setLaenge(auswahlNetz.getLaenge());
+        letztesNetz.setGroesse(auswahlNetz.getGroesse());
+        letztesNetz.setStatus(auswahlNetz.getStatus());
+        
          netzDAO.saveNetzBerger(auswahlNetz, berger);
-       return "test"; 
+         
+       return "zusammenfassung"; 
     }
     
 }

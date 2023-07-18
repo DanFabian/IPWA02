@@ -13,8 +13,11 @@ public class indexController {
     
   
     @Inject   
-    private person person;   
-
+    private person person;  
+    @Inject   
+    private MelderDAO melderDAO;  
+   @Inject   
+    private Melder melder; 
     public String getAuswahl() {
         return auswahl;
     }
@@ -26,9 +29,11 @@ public class indexController {
     public String geheSeite() {
         if (person.getTelefon().equalsIgnoreCase("")){
            person.setBerger(false);
-            person.setMelder(true);}
+            person.setMelder(true);
+        }
         else {person.setBerger(true);
-              person.setMelder(false);}
+              person.setMelder(false);
+           }
         return "auswahl";
       
         

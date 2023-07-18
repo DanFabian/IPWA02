@@ -1,9 +1,9 @@
 
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.List;
-import java.util.Objects;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -21,6 +21,7 @@ import javax.persistence.Query;
  */
 @Named
 @ApplicationScoped
+
 
 public class MelderDAO {
     
@@ -49,6 +50,18 @@ public class MelderDAO {
         em.close();
     }
     
+    public void aktualisiereMelder(Melder neuerMelder)
+    {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t= em.getTransaction();
+       
+        
+        t.begin();
+        em.merge(neuerMelder);
+        t.commit();
+        
+        em.close();
+    }
     public List alleMelder()
             
     {
@@ -64,7 +77,21 @@ public class MelderDAO {
         
     }
     
-    
+     public List letzterMelder()
+            
+    {
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        
+        Query abfrage = em.createQuery("select t from Melder t order by t.id desc", Melder.class).setMaxResults(1);
+        
+        List<Melder> letzterMelder = abfrage.getResultList();
+        em.close();
+        
+        return letzterMelder;
+        
+    }
 }
     
     

@@ -47,34 +47,38 @@ public class NetzDAO {
     
     public void saveNetzMelder(Netz neuesNetz, Melder neuerMelder)
     {
-        boolean vorhanden = false;
+        
         EntityManager em = emf.createEntityManager();
         
         
         
         EntityTransaction t = em.getTransaction();
         
-        List<Melder> alleMelder = melderDAO.alleMelder();
-        for (Melder m : alleMelder) {
-            if (m.equals(neuerMelder)){
-            vorhanden = true;}
-        else{ vorhanden=false;}
-        }
-        if (vorhanden = true)
-        {neuerMelder.getNetzList().add(neuesNetz);
+        
+        
+            neuerMelder.getNetzList().add(neuesNetz);
+            neuesNetz.setMelder(neuerMelder);
                 t.begin();
                 em.merge(neuerMelder);
-                em.persist(neuesNetz);
+                em.merge(neuesNetz);
                 t.commit();
-            em.close();}
-        else{
-        neuerMelder.getNetzList().add(neuesNetz);       
+            em.close();
+        }
+    
+        public void saveNetzMelderNeu(Netz neuesNetz, Melder neuerMelder)
+    {
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        
+        neuesNetz.setMelder(neuerMelder);
+        neuerMelder.getNetzList().add(neuesNetz); 
         t.begin();
-        em.persist(neuesNetz);
-        em.persist(neuerMelder);
+        /*em.persist(neuesNetz);*/
+        em.merge(neuerMelder);
         t.commit();
         
-        em.close();}
+        em.close();
        
                 
     }
@@ -82,6 +86,7 @@ public class NetzDAO {
     public void saveNetzBerger(Netz gemeldetesNetz, Berger neuerBerger)
     {
         neuerBerger.getNetzList().add(gemeldetesNetz);
+        gemeldetesNetz.setBerger(neuerBerger);
         EntityManager em = emf.createEntityManager();
         EntityTransaction t = em.getTransaction();
         
@@ -118,18 +123,7 @@ public class NetzDAO {
         em.close();
     }
    
-   public List<Netz> zeigeLetztesNetz()
-    {
-        
-         EntityManager em = emf.createEntityManager();
-            Query abfrage = em.createQuery("SELECT a FROM Netz a where a.status='bergungbevorstehend'");
-            
-            List<Netz> alleNetze = abfrage.getResultList();
-            em.close();
-            int lastIndex = alleNetze.size() -1;
-         
-            return alleNetze;
-    }
+
    
    public List<Netz> NetzzuBerger(Berger berger)
     {
@@ -145,5 +139,21 @@ public class NetzDAO {
          
          
             return netz;
+    }
+   
+   public List letzteNetz()
+            
+    {
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        
+        Query abfrage = em.createQuery("select n from Netz n order by n.id desc", Netz.class).setMaxResults(1);
+        
+        List<Melder> letzterMelder = abfrage.getResultList();
+        em.close();
+        
+        return letzterMelder;
+        
     }
 }

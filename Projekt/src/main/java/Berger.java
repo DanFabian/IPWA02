@@ -5,6 +5,7 @@ import jakarta.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,12 +20,12 @@ public class Berger implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int nr;
+    private int id;
     private String nachname;
     private String vorname;
     private String telefon;
 
-    @OneToMany(fetch=FetchType.EAGER)
+    @OneToMany
     private List<Netz> netzList = new ArrayList<>(0);
 
     
@@ -33,12 +34,12 @@ public class Berger implements Serializable{
     
     
 
-     public int getNr() {
-        return nr;
+     public int getId() {
+        return id;
     }
 
-    public void setNr(int nr) {
-        this.nr = nr;
+    public void setId(int id) {
+        this.id = id;
     }
     
     public String getNachname() {
