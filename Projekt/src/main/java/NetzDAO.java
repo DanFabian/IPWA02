@@ -72,9 +72,9 @@ public class NetzDAO {
         EntityTransaction t = em.getTransaction();
         
         neuesNetz.setMelder(neuerMelder);
-        neuerMelder.getNetzList().add(neuesNetz); 
+        neuerMelder.getNetzList().add(neuesNetz);
         t.begin();
-        /*em.persist(neuesNetz);*/
+        em.merge(neuesNetz);
         em.merge(neuerMelder);
         t.commit();
         
@@ -108,6 +108,17 @@ public class NetzDAO {
             return alleNetze;
         
     }
+   
+   public List<Netz> zeigeNetzeBergungBevorstehendMitBerger() 
+        { 
+            EntityManager em = emf.createEntityManager();
+            Query abfrage = em.createQuery("SELECT a FROM Netz a JOIN a.berger b where a.status='bergungbevorstehend'");
+            
+            List<Netz> alleNetze = abfrage.getResultList();
+            em.close();
+            return alleNetze;
+        
+    }
     
    public void aktualisiereNetz(Netz gemeldetesNetz)
     {
@@ -123,7 +134,13 @@ public class NetzDAO {
         em.close();
     }
    
-
+public Berger BergerzuNetz(Netz netz)
+    {
+            Berger berger = netz.getBerger();
+         
+         
+            return berger;
+    }
    
    public List<Netz> NetzzuBerger(Berger berger)
     {

@@ -30,7 +30,7 @@ public class Melder implements Serializable {
     private String telefon;
     
     
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "melder")
     private List<Netz> netzList = new ArrayList<>(0);
 
     public void setId(int id) {
