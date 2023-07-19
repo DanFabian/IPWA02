@@ -29,7 +29,7 @@ public class Melder implements Serializable {
     private String telefon;
     
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "melder")
+    @OneToMany /*(fetch = FetchType.LAZY, mappedBy = "melder")*/
     private List<Netz> netzList = new ArrayList<>(0);
 
     public void setId(int id) {

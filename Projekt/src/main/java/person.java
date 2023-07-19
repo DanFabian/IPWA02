@@ -9,15 +9,11 @@ import java.io.Serializable;
 public class person implements Serializable {
     
   
-    private long personMelderId;
+    private int personMelderId =0;
+    private int personBergerId=0;
 
-    public long getPersonMelderId() {
-        return personMelderId;
-    }
-
-    public void setPersonMelderId(long personMelderId) {
-        this.personMelderId = personMelderId;
-    }
+    
+    
     private int nr;
     private String nachname;
     private String vorname;
@@ -25,6 +21,22 @@ public class person implements Serializable {
     private boolean berger;
     private boolean melder;
     
+    public int getPersonBergerId() {
+        return personBergerId;
+    }
+
+    public void setPersonBergerId(int personBergerId) {
+        this.personBergerId = personBergerId;
+    }
+
+    public int getPersonMelderId() {
+        return personMelderId;
+    }
+
+    public void setPersonMelderId(int personMelderId) {
+        this.personMelderId = personMelderId;    
+    }
+
     public int getNr() {
         return nr;
     }

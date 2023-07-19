@@ -25,7 +25,7 @@ public class Berger implements Serializable{
     private String vorname;
     private String telefon;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "berger")
+    @OneToMany /*(fetch = FetchType.LAZY, mappedBy = "berger")*/
     private List<Netz> netzList = new ArrayList<>(0);
 
     

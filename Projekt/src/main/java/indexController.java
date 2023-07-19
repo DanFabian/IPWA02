@@ -32,7 +32,7 @@ public class indexController {
 
     public String geheSeite() {
         
-       melderDAO.erzeugeMelderId();
+       /*melderDAO.erzeugeMelderId();*/
         if (person.getTelefon().equalsIgnoreCase("")){
            person.setBerger(false);
             person.setMelder(true);

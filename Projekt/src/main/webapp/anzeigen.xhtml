@@ -14,32 +14,59 @@
       <br/>
       
       <h:form>
-        <p:dataTable value = "#{bergerDAO.zeigeBergerNetze()}" var="alleBerger">
+        <p:dataTable tableStyle="width: auto;" value = "#{bergerDAO.zeigeBergerNetze()}" var="alleBerger">
    
         <p:column>    				
-            <f:facet name = "header">Beschreibung</f:facet>    				
+            <f:facet name = "header">Nachname</f:facet>    				
             #{alleBerger.nachname}
             
         </p:column>
    
         <p:column>
-            <f:facet name = "header">Geografische Breite</f:facet>
+            <f:facet name = "header">Vorname</f:facet>
             #{alleBerger.vorname}
+        </p:column>
+            
+        
+        <p:column>
+            <f:facet name = "header">Telefonnummer</f:facet>
+            #{alleBerger.telefon}
         </p:column>
    
         
  
         <p:column>
-          
+          <f:facet name = "header">Netze</f:facet>
       
-          
-      <!--      <p:dataTable value = "" var="netz">
-               <f:facet name = "header">Beschreibung</f:facet>
-            #{netz.beschreibung}
+          <h:form>
+             
+           <p:dataTable tableStyle="width: auto;" value = "#{netzDAO.NetzzuBerger(alleBerger)}" var="alleNetze">
+               
+                <p:column>
+                    <f:facet name = "header">Beschreibung</f:facet>
+                    #{alleNetze.beschreibung}
+                </p:column>
+               
+               <p:column>
+                    <f:facet name = "header">Länge</f:facet>
+                    #{alleNetze.laenge}
+                </p:column>
+               
+               <p:column>
+                    <f:facet name = "header">Breite</f:facet>
+                    #{alleNetze.breite}
+                </p:column>
+               
+               <p:column>
+                    <f:facet name = "header">Grösse</f:facet>
+                    #{alleNetze.groesse}
+                </p:column>
+               
            </p:dataTable>
+              </h:form>
           </p:column>
             </p:dataTable>
-       </h:form> -->
+       </h:form> 
        
    
 </h:body>

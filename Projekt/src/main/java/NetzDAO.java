@@ -27,6 +27,9 @@ public class NetzDAO {
 
     @Inject
     private MelderDAO melderDAO;
+    
+    @Inject
+    private Berger berger;
    
     
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");

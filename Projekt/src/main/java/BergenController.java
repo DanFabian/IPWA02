@@ -23,11 +23,17 @@ public class BergenController implements Serializable{
     private Berger berger;
     @Inject
     private LetztesNetz letztesNetz;
+    @Inject
+    private BergerDAO bergerDAO;
     
     
     public String NetzBergen(Netz auswahlNetz) {
+        
+        int check = person.getPersonBergerId();
+        if (check == 0)
+            {bergerDAO.erzeugeBergerId();}
    
-        berger.setId(1);
+        berger.setId(person.getPersonBergerId());
         berger.setNachname(person.getNachname());
         berger.setVorname(person.getVorname());
         berger.setTelefon(person.getTelefon());

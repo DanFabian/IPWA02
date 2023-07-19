@@ -1,11 +1,11 @@
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.NamedQuery;
 import javax.persistence.EntityTransaction;
 
 
@@ -15,7 +15,8 @@ import javax.persistence.EntityTransaction;
 
 public class BergerDAO {
     
-   
+   @Inject
+   person person;
    
    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
    
@@ -33,12 +34,28 @@ public class BergerDAO {
     public List<Berger> zeigeBergerNetze() 
         { 
             EntityManager em = emf.createEntityManager();
-            Query abfrage = em.createQuery("SELECT a from Berger a JOIN a.netzList b WHERE b.status='bergungbevorstehend'");
+            Query abfrage = em.createQuery("SELECT DISTINCT a from Berger a JOIN a.netzList b WHERE b.status='bergungbevorstehend'");
             
             List<Berger> alleBerger = abfrage.getResultList();
             em.close();
             return alleBerger;
         
+    }
+    
+    public void erzeugeBergerId()
+    {   Berger neuerBerger = new Berger();
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t= em.getTransaction();
+       
+        
+        t.begin();
+        em.persist(neuerBerger);
+        
+        person.setPersonBergerId(neuerBerger.getId());
+        t.commit();
+       
+        em.close();
     }
     
 }
