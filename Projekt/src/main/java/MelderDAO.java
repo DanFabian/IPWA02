@@ -25,7 +25,8 @@ import javax.persistence.Query;
 
 public class MelderDAO {
     
-    
+    @Inject
+    person person;
 
     
     
@@ -91,6 +92,22 @@ public class MelderDAO {
         
         return letzterMelder;
         
+    }
+     
+     public void erzeugeMelderId()
+    {   Melder neuerMelder = new Melder();
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t= em.getTransaction();
+       
+        
+        t.begin();
+        em.persist(neuerMelder);
+        
+        person.setPersonMelderId(neuerMelder.getId());
+        t.commit();
+       
+        em.close();
     }
 }
     

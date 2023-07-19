@@ -9,7 +9,15 @@ import java.io.Serializable;
 public class person implements Serializable {
     
   
+    private long personMelderId;
 
+    public long getPersonMelderId() {
+        return personMelderId;
+    }
+
+    public void setPersonMelderId(long personMelderId) {
+        this.personMelderId = personMelderId;
+    }
     private int nr;
     private String nachname;
     private String vorname;

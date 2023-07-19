@@ -89,7 +89,7 @@ public class MeldenController implements Serializable{
         netz.setGroesse(this.groesse);
         netz.setStatus(this.status);
         
-        melder.setId(1);
+       
         melder.setNachname(person.getNachname());
         melder.setVorname(person.getVorname());
         melder.setTelefon(person.getTelefon());
