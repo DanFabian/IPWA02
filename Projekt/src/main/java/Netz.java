@@ -45,11 +45,11 @@ public class Netz implements Serializable{
     
     
     @ManyToOne
-    /*@JoinColumn(name = "melder_id")*/
+    @JoinColumn(name = "melder_id")
     private Melder melder;
     
     @ManyToOne
-    /*@JoinColumn(name = "berger_id")*/
+    @JoinColumn(name = "berger_id")
     private Berger berger;
    
 
