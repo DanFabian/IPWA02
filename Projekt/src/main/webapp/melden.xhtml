@@ -9,45 +9,71 @@
    <title>ProjectNet</title>
 </h:head>
 <h:body>
-  
+  <header>
+        <div class="headerbox">
+        <img src="dolphin.png" alt="Dolphin Icon" style="float:left;width:90px;height:90px;"></img>
+         <img src="dolphin.png" alt="Dolphin Icon" style="float:right;width:90px;height:90px;"></img>
+        <br/>
+        <p:outputLabel style="font-size:xx-large" value="Shea Separd"/>
+        <br/>
+        <br/>
       
-      <h:outputText value="Sie sind angemeldet als Id: #{person.personMelderId}, Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
+        </div>
+    </header>
+      
+     
       <br/>
       
-      
+      <div class="meldenbox">
+            <br/>
+          <br/>
+           <h:outputText value="Sie sind angemeldet als" />
+           <br/>
+           <h:outputText value="Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
       <h:form>
+          <br/>
+          <br/>
             <h:outputLabel for="beschreibung">Beschreibung des Netzes</h:outputLabel>
+
             <br/>
             <p:inputText id="beschreibung" value="#{meldenController.beschreibung}" required="true" />
             <p:message for="beschreibung" display="default"/>
             <br/>
+            <br/>
             <h:outputLabel for="breite">Geografische Breite in Dezimalformat (-)90.123456 </h:outputLabel>
+           
             <br/>
             <p:inputNumber id="breite" value="#{meldenController.breite}" minValue="-90"
                                 maxValue="90" decimalPlaces="6" required="true" > 
-            <!-- <f:validateRegex pattern="/^[+-]?(([1-8]?[0-9])(\.[0-9]{1,6})?|90(\.0{1,6})?)$/"></f:validateRegex> -->
+           
             </p:inputNumber>
             <p:message for="breite" display="default"/>
             <br/>
-            <p:outputLabel for="laenge">Geografische Länge in Dezimalformat (-)180,123456</p:outputLabel>
+            <br/>
+            <p:outputLabel style="font-size:large" for="laenge">Geografische Länge in Dezimalformat (-)180,123456</p:outputLabel>
+            
              <br/>
              <p:inputNumber id="laenge" value="#{meldenController.laenge}" minValue="-180"
                                 maxValue="180" decimalPlaces="6" required="true" > 
 
-            <!-- <f:validateRegex pattern="^(\+|W)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$"></f:validateRegex> -->
+           
              </p:inputNumber>
              <p:message for="laenge" display="default"/>
           
-            
+            <br/>
             
             <br/>
             <h:outputLabel for="groesse">Geschätzte Grösse</h:outputLabel>
+          
             <br/>
              <p:inputText id="groesse" value="#{meldenController.groesse}" required="true" />
              <p:message for="groesse" display="default"/>
             <br/>
+            <br/>
             <p:commandButton value="Submit" ajax="false" action="#{meldenController.saveNetzMelder()}"  />
+            <br/>
+            <br/>
       </h:form>
-     
+     </div>
 </h:body>
 </html>   

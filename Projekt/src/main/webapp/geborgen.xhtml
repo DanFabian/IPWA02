@@ -8,12 +8,27 @@
    <title>ProjectNet</title>
 </h:head>
 <h:body>
-  
-      
-      <h:outputText value="Sie sind angemeldet als Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
-      <br/>
-       <br/>
+    
+    <header>
+        <div class="headerbox">
+        <img src="dolphin.png" alt="Dolphin Icon" style="float:left;width:90px;height:90px;"></img>
+         <img src="dolphin.png" alt="Dolphin Icon" style="float:right;width:90px;height:90px;"></img>
         <br/>
+        <p:outputLabel style="font-size:xx-large" value="Shea Separd"/>
+        <br/>
+        <br/>
+      
+        </div>
+    </header>
+  
+      <div class="geborgenbox">
+      <br/>
+          <br/>
+           <h:outputText value="Sie sind angemeldet als" />
+           <br/>
+           <h:outputText value="Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
+        <br/>    
+      <br/>
         <h:outputText value="Bitte suchen Sie ein Netz aus das Sie als geborgen melden wollen:" />
       <br/>
        <br/>
@@ -53,5 +68,6 @@
         </p:column>
     </p:dataTable>
       </h:form>
+      </div>
 </h:body>
 </html>   

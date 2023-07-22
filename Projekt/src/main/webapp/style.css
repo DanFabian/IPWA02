@@ -1,10 +1,52 @@
 
-/*
+
+
 body {
-  font-family: Arial;
-  text-align: center;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size:larger;
+    text-align: center;
+    align-items: center;
+    background-image: url("fishing-net.jpg")
+}
+header {
+   
+    margin-bottom: 50px;
 }
 
+.headerbox{
+     margin: auto;
+    width: 800px;
+    background-color: antiquewhite;
+}
+
+.meldenbox{
+     text-align: center;
+    border: 10px solid lightgray;
+   margin: auto;
+    width: 1000px;
+    background: #00ccff;
+   
+}
+
+.geborgenbox{
+     text-align: center;
+    border: 10px solid lightgray;
+   margin: auto;
+    width: 1100px;
+    background: #00ccff;
+   
+}
+
+
+.anzeigenbox{
+     text-align: center;
+    border: 10px solid lightgray;
+   margin: auto;
+    width: 1024px;
+    background: #00ccff;
+   
+}
+/*
 h1{
   font-size: 1.7em;
 }

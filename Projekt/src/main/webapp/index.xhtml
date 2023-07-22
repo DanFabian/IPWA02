@@ -5,36 +5,69 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
   <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+ 
   <title>ProjectNet</title>
   
 </h:head>
 
 <h:body>
+    <header>
+        <div class="headerbox">
+        <img src="dolphin.png" alt="Dolphin Icon" style="float:left;width:90px;height:90px;"></img>
+         <img src="dolphin.png" alt="Dolphin Icon" style="float:right;width:90px;height:90px;"></img>
+        <br/>
+        <p:outputLabel style="font-size:xx-large" value="Shea Separd"/>
+        <br/>
+        <br/>
+      
+        </div>
+    </header>
+    
+    
+    <div class="meldenbox">
+        
+    
     <h:form>
-        <p:outputLabel for="nachname" value="Geben Sie Ihren Nachnamen ein:"/>
+         <br/>
+              <br/>
+         <p:outputLabel style="font-size: large" value="Willkommen!"/>
+             <br/>
+         <p:outputLabel style="font-size: large" value="Sie haben hier die Möglichkeit Geisternetze zu melden und ihre Bergung zu koordinieren."/>
+         <br/>
+          <p:outputLabel style="font-size: large" value="Netzte können ohne Telefonnummer gemeldet werden."/>
+          <br/>
+           <p:outputLabel style="font-size: large" value="Wenn Sie Ihre Telefonnummer angeben stehen Ihnen weitere Funktionen zur Verfügung."/>
+           <br/>
+              <br/>
+        <p:outputLabel for="nachname" style="font-size: large" value="Geben Sie Ihren Nachnamen ein:"/>
         <br/>
         <p:inputText id="nachname" value="#{person.nachname}" required="true">
          <p:keyFilter regEx="/[A-Z]/i"/>
         </p:inputText>
         <p:message for="nachname" display="text"/>
         <br/>
-         <p:outputLabel for="vorname" value="Geben Sie Ihren Vornamen ein:"/>
+        <br/>
+         <p:outputLabel style="font-size: large" for="vorname" value="Geben Sie Ihren Vornamen ein:"/>
          <br/>
          <p:inputText id="vorname" value="#{person.vorname}" required="true" type ="text">
            <p:keyFilter regEx="/[A-Z]/i"/>
          </p:inputText>
          <p:message for="vorname" display="text"/>
         <br/>
-         <p:outputLabel for="telefon" value="Geben Sie Ihre Telefonnummer ein:"/>
+        <br/>
+         <p:outputLabel style="font-size: large" for="telefon" value="Geben Sie Ihre Telefonnummer ein:"/>
          <br/>
         <p:inputMask id="telefon" value="#{person.telefon}" mask="(+99)999 9999999"/>
         <br/>
-        <p:outputLabel  value="Felder mit * müssen ausgefüllt werden"/>
-        
+        <br/>
+        <p:outputLabel  style="font-size: large" value="Felder mit * müssen ausgefüllt werden"/>
+           <br/>
         <br/>
    
-    <p:commandButton value="Absenden" ajax="false" action="#{indexController.geheSeite()}" />
+    <p:commandButton styleClass="ui-button-secondary" value="Absenden" ajax="false" action="#{indexController.geheSeite()}" />
+       <br/>
+          <br/>
     </h:form>
-    
+    </div>
 </h:body>
 </html>

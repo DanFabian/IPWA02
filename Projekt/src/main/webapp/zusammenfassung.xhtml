@@ -8,13 +8,33 @@
    <title>ProjectNet</title>
 </h:head>
 <h:body>
-  
+    
+    <header>
+        <div class="headerbox">
+        <img src="dolphin.png" alt="Dolphin Icon" style="float:left;width:90px;height:90px;"></img>
+         <img src="dolphin.png" alt="Dolphin Icon" style="float:right;width:90px;height:90px;"></img>
+        <br/>
+        <p:outputLabel style="font-size:xx-large" value="Shea Separd"/>
+        <br/>
+        <br/>
       
-      <h:outputText value="Sie sind angemeldet als Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
+        </div>
+    </header>
+    
+  <div class="meldenbox">
+      <br/>
+          <br/>
+           <h:outputText value="Sie sind angemeldet als" />
+           <br/>
+           <h:outputText value="Vorname: #{person.vorname}, Nachname: #{person.nachname}, Telefon: #{person.telefon}" />
+        <br/>    
       <br/>
       
+      <h:outputText value="Sie haben folgendes Netz ausgewählt:" />
+          <br/>    
+      <br/>
       <h:form>
-      <p:dataTable tableStyle="width: auto;" value="#{letztesNetz}" >
+      <p:dataTable  value="#{letztesNetz}" >
         
    
         <p:column>
@@ -41,9 +61,14 @@
             <f:facet name = "header">Status</f:facet>
             #{letztesNetz.status}
         </p:column>
-         
-      </p:dataTable>    
+     
+      </p:dataTable>   
+                  <br/>    
+      <br/>
            <p:commandButton value="Zurück zur Auswahl" ajax="false" action="auswahl"  />
+               <br/>    
+      <br/>
       </h:form> 
+  </div>
     </h:body>
 </html>
