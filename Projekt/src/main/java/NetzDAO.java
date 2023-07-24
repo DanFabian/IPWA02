@@ -1,7 +1,8 @@
 
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +13,7 @@ import javax.persistence.Query;
 
 
 @Named
-@ApplicationScoped
+@RequestScoped
 
 
 public class NetzDAO {
@@ -143,6 +144,19 @@ public Berger BergerzuNetz(Netz netz)
          
          
             return netz;
+    }
+   
+   public List<Netz> NetzzuBergerBergung(Berger berger)
+    {       List<Netz> netzBergung = new ArrayList<>(0);
+            List <Netz> netz = berger.getNetzList();
+            for (Netz n : netz) {
+            if (n.getStatus().equals("bergungbevorstehend"))
+            
+        
+            netzBergung.add(n);
+            
+    }
+        return netzBergung;
     }
    
    public List<Netz> NetzzuMelder(Melder melder)
