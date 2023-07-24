@@ -47,8 +47,8 @@ public class Melder implements Serializable {
         if(obj instanceof Melder) {
             Melder m = (Melder) obj;
             if (m.getNachname().equals(this.nachname) &&
-                    m.getVorname().equals(this.vorname) &&
-                    m.getTelefon().equals(this.telefon))
+                    m.getVorname().equals(this.vorname)
+                   )
                 return true;
         }
         return false;

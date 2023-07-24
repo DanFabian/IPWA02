@@ -58,5 +58,28 @@ public class BergerDAO {
         em.close();
     }
     
+    public void pruefeBerger(person person)
+            
+    {
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        
+        Query abfrage = em.createQuery("SELECT a FROM Berger a");
+        List<Berger> alleBerger = abfrage.getResultList();
+       
+        
+        for (Berger b : alleBerger) {
+            if (b.getNachname().equals(person.getNachname()) &&
+                   b.getVorname().equals(person.getVorname())){
+            
+        
+            person.setPersonBergerId(b.getId()); 
+                }}
+        em.close();
+        
+        
+    }
+    
 }
     

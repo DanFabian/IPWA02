@@ -27,7 +27,8 @@ public class MelderDAO {
     
     @Inject
     person person;
-
+   
+    
     
     
     
@@ -108,6 +109,28 @@ public class MelderDAO {
         t.commit();
        
         em.close();
+    }
+      public void pruefeMelder(person person)
+            
+    {
+        
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        
+        Query abfrage = em.createQuery("SELECT Distinct a FROM Melder a");
+        List<Melder> alleMelder = abfrage.getResultList();
+       
+        
+        for (Melder m : alleMelder) {
+            if (m.getNachname().equals(person.getNachname()) &&
+                   m.getVorname().equals(person.getVorname())){
+            
+        
+            person.setPersonMelderId(m.getId()); 
+                }}
+        em.close();
+        
+        
     }
 }
     

@@ -74,6 +74,10 @@ public class MeldenController implements Serializable{
     
   
     public String saveNetzMelder(){
+        
+        
+        
+        melderDAO.pruefeMelder(person);
         int check = person.getPersonMelderId();
         if (check == 0)
             {melderDAO.erzeugeMelderId();}
@@ -90,12 +94,11 @@ public class MeldenController implements Serializable{
         netz.setLaenge(this.laenge);
         netz.setGroesse(this.groesse);
         netz.setStatus(this.status);
-        
+       
         melder.setId(person.getPersonMelderId());
         melder.setNachname(person.getNachname());
         melder.setVorname(person.getVorname());
         melder.setTelefon(person.getTelefon());
-       
         /*List<Melder> alleMelder = melderDAO.alleMelder();
         
         for (Melder m : alleMelder) {

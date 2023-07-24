@@ -28,6 +28,24 @@ public class Berger implements Serializable{
     @OneToMany (fetch = FetchType.LAZY, mappedBy = "berger")
     private List<Netz> netzList = new ArrayList<>(0);
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
+    /*@Override
+    public boolean equals(Object obj){
+        if(obj instanceof Berger) {
+            Berger b = (Berger) obj;
+            if (b.getNachname().equals(this.nachname) &&
+                    b.getVorname().equals(this.vorname)
+                   )
+                return true;
+        }
+        return false;
+    } */
+
+    
     
     
 

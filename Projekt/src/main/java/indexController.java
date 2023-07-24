@@ -31,7 +31,7 @@ public class indexController {
     }
 
     public String geheSeite() {
-        
+      
        /*melderDAO.erzeugeMelderId();*/
         if (person.getTelefon().equalsIgnoreCase("")){
            person.setBerger(false);

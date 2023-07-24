@@ -5,9 +5,7 @@ import java.io.Serializable;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+
 
 @Named
 @ApplicationScoped
@@ -28,7 +26,7 @@ public class BergenController implements Serializable{
     
     
     public String NetzBergen(Netz auswahlNetz) {
-        
+        bergerDAO.pruefeBerger(person);
         int check = person.getPersonBergerId();
         if (check == 0)
             {bergerDAO.erzeugeBergerId();}

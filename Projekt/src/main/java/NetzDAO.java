@@ -1,12 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author danie
- */
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -171,6 +163,7 @@ public Berger BergerzuNetz(Netz netz)
         Query abfrage = em.createQuery("select n from Netz n order by n.id desc", Netz.class).setMaxResults(1);
         
         List<Melder> letzterMelder = abfrage.getResultList();
+        
         em.close();
         
         return letzterMelder;
