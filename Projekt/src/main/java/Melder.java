@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 
 
 import jakarta.inject.Named;
@@ -36,13 +33,12 @@ public class Melder implements Serializable {
         this.id = id;
     }
     
-
     public int getId()
     {
     return id;
     }
-
-    @Override
+    //wird nicht gebraucht
+    /*@Override
     public boolean equals(Object obj){
         if(obj instanceof Melder) {
             Melder m = (Melder) obj;
@@ -52,7 +48,7 @@ public class Melder implements Serializable {
                 return true;
         }
         return false;
-    }
+    } */
     
     public List<Netz> getNetzList() {
         return netzList;
@@ -61,42 +57,36 @@ public class Melder implements Serializable {
     public void setNetzList(List<Netz> netzList) {
         this.netzList = netzList;
     }
-    
+      
+    public String getNachname()
+    {
+        return nachname;
+    }
 
+    public String getVorname()
+    {
+        return vorname;
+    }
 
-   
-public String getNachname()
-{
-return nachname;
-}
+    public String getTelefon()
+    {
+        return telefon;
+    }
 
-public String getVorname()
-{
-    return vorname;
-}
+    public void setNachname(String nachname)
+    {
+        this.nachname=nachname;
+    }
 
-public String getTelefon()
-{
-return telefon;
-}
+    public void setVorname(String vorname)
+    {
+        this.vorname=vorname;
+    }
 
-
-
-
-public void setNachname(String nachname)
-{
-    this.nachname=nachname;
-}
-
-public void setVorname(String vorname)
-{
-    this.vorname=vorname;
-}
-
-public void setTelefon(String telefon)
-{
-    this.telefon=telefon;
-}
+    public void setTelefon(String telefon)
+    {
+        this.telefon=telefon;
+    }
 
 
 }

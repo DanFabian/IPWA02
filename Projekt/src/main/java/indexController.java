@@ -12,32 +12,21 @@ import javax.persistence.Persistence;
 @ApplicationScoped
 
 public class indexController {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
-    private String auswahl;
-    
+ 
   
     @Inject   
     private person person;  
-    @Inject   
-    private MelderDAO melderDAO;  
-   @Inject   
-    private Melder melder; 
-    public String getAuswahl() {
-        return auswahl;
-    }
 
-    public void setAuswahl(String auswahl) {
-        this.auswahl = auswahl;
-    }
+
 
     public String geheSeite() {
       
        /*melderDAO.erzeugeMelderId();*/
         if (person.getTelefon().equalsIgnoreCase("")){
-           person.setBerger(false);
+           /*person.setBerger(false);*/
             person.setMelder(true);
         }
-        else {person.setBerger(true);
+        else {/*person.setBerger(true);*/
               person.setMelder(false);
            }
         return "auswahl";

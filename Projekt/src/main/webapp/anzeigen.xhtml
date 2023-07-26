@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -30,7 +31,7 @@
       <br/>
       
       <h:form>
-        <p:dataTable tableStyle="width: auto; text-align:center;" value = "#{bergerDAO.zeigeBergerNetze()}" var="alleBerger">
+        <p:dataTable tableStyle="width: auto; text-align:center;" value = "#{anzeigenController.zeigeBergerNetze()}" var="alleBerger">
    
         <p:column>    				
             <f:facet name = "header">Nachname</f:facet>    				
@@ -56,7 +57,7 @@
       
           <h:form>
              
-           <p:dataTable  tableStyle="width: 600px;" value = "#{netzDAO.NetzzuBergerBergung(alleBerger)}" var="alleNetze">
+           <p:dataTable  tableStyle="width: 600px;" value = "#{anzeigenController.NetzzuBergerBergung(alleBerger)}" var="alleNetze">
                
                 <p:column>
                     <f:facet name = "header">Beschreibung</f:facet>

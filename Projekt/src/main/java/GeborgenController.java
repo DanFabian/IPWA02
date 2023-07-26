@@ -5,9 +5,7 @@ import java.io.Serializable;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+
 
 @Named
 @ApplicationScoped
@@ -18,6 +16,8 @@ public class GeborgenController implements Serializable{
     private NetzDAO netzDAO;
     @Inject
     private LetztesNetz letztesNetz;
+    
+    // speichert ausgewähltes Netz mit status "geborgen" in DB
 
     public String NetzGeborgen(Netz auswahlNetz) {
         

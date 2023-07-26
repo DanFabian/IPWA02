@@ -1,6 +1,6 @@
 
 
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.List;
@@ -10,17 +10,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author danie
- */
 @Named
-@ApplicationScoped
+@RequestScoped
 
 
 public class MelderDAO {
@@ -29,15 +21,9 @@ public class MelderDAO {
     person person;
    
     
-    
-    
-    
-    
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
    
-    public String test(){
-        return "test";
-    }
+  
     
     public void saveMelder(Melder neuerMelder)
     {
@@ -64,6 +50,8 @@ public class MelderDAO {
         
         em.close();
     }
+    
+    // eine Liste aller Melder wird abgefragt
     public List alleMelder()
             
     {
@@ -79,7 +67,7 @@ public class MelderDAO {
         
     }
     
-     public List letzterMelder()
+    /* public List letzterMelder()
             
     {
         
@@ -93,8 +81,9 @@ public class MelderDAO {
         
         return letzterMelder;
         
-    }
+    } */
      
+    // Ein neuer Melder ohne Inhalt wird angelegt und die ID in person zwischengespeichert
      public void erzeugeMelderId()
     {   Melder neuerMelder = new Melder();
         
@@ -110,6 +99,8 @@ public class MelderDAO {
        
         em.close();
     }
+     
+     // Es wird geprüft ob die neu angelegte Person in der DB vorhanden ist,wenn ja dann ID in person
       public void pruefeMelder(person person)
             
     {

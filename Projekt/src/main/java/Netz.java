@@ -1,12 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author danie
- */
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -21,8 +13,8 @@ import javax.persistence.ManyToOne;
 @Entity
 
 public class Netz implements Serializable{
-    
-    @Override
+ // wird nicht benötigt   
+ /*   @Override
     public boolean equals(Object obj){
         if(obj instanceof Netz) {
             Netz n = (Netz) obj;
@@ -32,7 +24,7 @@ public class Netz implements Serializable{
                 return true;
         }
         return false;
-    }
+    } */
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -69,9 +61,6 @@ public class Netz implements Serializable{
         this.berger = berger;
     }
    
-    
-    
-    
     public long getId() {
         return id;
     }

@@ -1,4 +1,4 @@
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.persistence.EntityTransaction;
 
 
 @Named
-@ApplicationScoped
+@RequestScoped
 
 public class BergerDAO {
     
@@ -20,17 +20,8 @@ public class BergerDAO {
    
    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
    
-    public List<Netz> zeigeNetzeGemeldet() 
-        { 
-            EntityManager em = emf.createEntityManager();
-            Query abfrage = em.createQuery("SELECT a FROM Netz a where a.status='gemeldet'");
-            
-            List<Netz> alleNetze = abfrage.getResultList();
-            em.close();
-            return alleNetze;
-        
-    }
     
+    // gibt Liste mit Bergern zurück die eine Beziehung zu einem Netz mit status "bergungbevorstehend" haben
     public List<Berger> zeigeBergerNetze() 
         { 
             EntityManager em = emf.createEntityManager();
@@ -42,6 +33,7 @@ public class BergerDAO {
         
     }
     
+    // erzeugt bei Bedarf einen Berger in DB und gibt ID an person zurück
     public void erzeugeBergerId()
     {   Berger neuerBerger = new Berger();
         
@@ -58,6 +50,7 @@ public class BergerDAO {
         em.close();
     }
     
+    // prüft ob die angemeldete Person ind DB vorhanden ist. Wenn ja speichert sie id in person
     public void pruefeBerger(person person)
             
     {

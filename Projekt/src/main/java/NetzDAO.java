@@ -1,6 +1,5 @@
 
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +17,7 @@ import javax.persistence.Query;
 
 public class NetzDAO {
 
-    @Inject
-    private MelderDAO melderDAO;
-    
-    @Inject
-    private Berger berger;
+
    
     
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectnet");
@@ -41,6 +36,17 @@ public class NetzDAO {
         em.close();
     }
     
+    public List<Netz> zeigeNetzeGemeldet() 
+        { 
+            EntityManager em = emf.createEntityManager();
+            Query abfrage = em.createQuery("SELECT a FROM Netz a where a.status='gemeldet'");
+            
+            List<Netz> alleNetze = abfrage.getResultList();
+            em.close();
+            return alleNetze;
+        
+    }
+    /*
     public void saveNetzMelder(Netz neuesNetz, Melder neuerMelder)
     {
         
@@ -60,8 +66,8 @@ public class NetzDAO {
                 t.commit();
             em.close();
         }
-    
-        public void saveNetzMelderNeu(Netz neuesNetz, Melder neuerMelder)
+    */
+        public void saveNetzMelder(Netz neuesNetz, Melder neuerMelder)
     {
         
         EntityManager em = emf.createEntityManager();
@@ -104,7 +110,7 @@ public class NetzDAO {
             return alleNetze;
         
     }
-   
+   /*
    public List<Netz> zeigeNetzeBergungBevorstehendMitBerger() 
         { 
             EntityManager em = emf.createEntityManager();
@@ -115,7 +121,7 @@ public class NetzDAO {
             return alleNetze;
         
     }
-    
+    */
    public void aktualisiereNetz(Netz gemeldetesNetz)
     {
         
@@ -130,35 +136,31 @@ public class NetzDAO {
         em.close();
     }
    
-public Berger BergerzuNetz(Netz netz)
-    {
-            Berger berger = netz.getBerger();
-         
-         
-            return berger;
-    }
-   
-   public List<Netz> NetzzuBerger(Berger berger)
-    {
-            List <Netz> netz = berger.getNetzList();
-         
-         
-            return netz;
-    }
-   
+
+   // liefrt Netze mit status bergungbevorstehen zu einem Berger aus
    public List<Netz> NetzzuBergerBergung(Berger berger)
-    {       List<Netz> netzBergung = new ArrayList<>(0);
+    {       /*List<Netz> netzBergung = new ArrayList<>(0);
             List <Netz> netz = berger.getNetzList();
             for (Netz n : netz) {
             if (n.getStatus().equals("bergungbevorstehend"))
             
         
-            netzBergung.add(n);
+            netzBergung.add(n); 
             
     }
-        return netzBergung;
+        return netzBergung; */
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        String nachname = berger.getNachname();
+        Query abfrage = em.createQuery("select n from Netz n JOIN n.berger b WHERE b.nachname LIKE :nachname AND n.status ='bergungbevorstehend'").setParameter("nachname", nachname);
+        
+        List<Netz> NetzBerger = abfrage.getResultList();
+        
+        em.close();
+        
+        return NetzBerger;
     }
-   
+   // Liest die Netze in Melder aus
    public List<Netz> NetzzuMelder(Melder melder)
     {
             List <Netz> netz = melder.getNetzList();
@@ -166,8 +168,24 @@ public Berger BergerzuNetz(Netz netz)
          
             return netz;
     }
-   
-   public List letzteNetz()
+   // Liest den Berger zu einem Netz aus
+   public Berger BergerzuNetz(Netz netz)
+    {
+            Berger berger = netz.getBerger();
+         
+         
+            return berger;
+    }
+   // Liest die Netze zu einem Berger aus
+   public List<Netz> NetzzuBerger(Berger berger)
+    {
+            List <Netz> netz = berger.getNetzList();
+         
+         
+            return netz;
+    }
+   // Speichert das zulestzt eingegebene oder bearbeitete Netz
+   /*public List letzteNetz()
             
     {
         
@@ -182,5 +200,5 @@ public Berger BergerzuNetz(Netz netz)
         
         return letzterMelder;
         
-    }
+    }*/
 }

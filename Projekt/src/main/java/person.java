@@ -18,7 +18,7 @@ public class person implements Serializable {
     private String nachname;
     private String vorname;
     private String telefon;
-    private boolean berger;
+    /*private boolean berger;*/
     private boolean melder;
     
     public int getPersonBergerId() {
@@ -52,13 +52,13 @@ public class person implements Serializable {
         this.melder = melder;
     }
 
-    public boolean getBerger() {
+    /*public boolean getBerger() {
         return berger;
     }
 
     public void setBerger(boolean berger) {
         this.berger = berger;
-    }
+    }*/
 
     public String getNachname() {
         return nachname;

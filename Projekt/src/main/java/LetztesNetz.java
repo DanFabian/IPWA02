@@ -1,10 +1,13 @@
 
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
 
 @Named
-@ApplicationScoped
+@RequestScoped
+
+// Speichert letztes bearbeitetes Netz für Zusammenfassung zwischen
+
 public class LetztesNetz implements Serializable{
     
     private int id;

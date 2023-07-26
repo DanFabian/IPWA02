@@ -28,11 +28,7 @@ public class Berger implements Serializable{
     @OneToMany (fetch = FetchType.LAZY, mappedBy = "berger")
     private List<Netz> netzList = new ArrayList<>(0);
 
-    /**
-     *
-     * @param obj
-     * @return
-     */
+   // wird nicht gebraucht
     /*@Override
     public boolean equals(Object obj){
         if(obj instanceof Berger) {
@@ -44,13 +40,6 @@ public class Berger implements Serializable{
         }
         return false;
     } */
-
-    
-    
-    
-
-    
-    
 
      public int getId() {
         return id;

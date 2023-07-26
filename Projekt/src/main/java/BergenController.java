@@ -24,7 +24,7 @@ public class BergenController implements Serializable{
     @Inject
     private BergerDAO bergerDAO;
     
-    
+    // speichert Berger und ausgewähltes Netz in DB, prüft ob neue ID erforderlich oder ob Berger schon vorhanden
     public String NetzBergen(Netz auswahlNetz) {
         bergerDAO.pruefeBerger(person);
         int check = person.getPersonBergerId();

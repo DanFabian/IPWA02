@@ -72,7 +72,7 @@ public class MeldenController implements Serializable{
         this.status = status;
     }
     
-  
+  // melder und netz werden in DB gespeichert, es wird geprueft ob melder schon vorhanden, ggf neuer erstellt wegen ID
     public String saveNetzMelder(){
         
         
@@ -99,18 +99,8 @@ public class MeldenController implements Serializable{
         melder.setNachname(person.getNachname());
         melder.setVorname(person.getVorname());
         melder.setTelefon(person.getTelefon());
-        /*List<Melder> alleMelder = melderDAO.alleMelder();
         
-        for (Melder m : alleMelder) {
-            if (m.equals(melder)){
-            
-        
-            netzDAO.saveNetzMelder(netz, melder);
-            return "zusammenfassung";
-                }} */
-       
-        /*netzDAO.saveNetz(netz);*/
-        netzDAO.saveNetzMelderNeu(netz, melder);
+        netzDAO.saveNetzMelder(netz, melder);
        
         
         return "zusammenfassung";
