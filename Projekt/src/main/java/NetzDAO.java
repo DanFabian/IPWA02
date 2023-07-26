@@ -137,22 +137,13 @@ public class NetzDAO {
     }
    
 
-   // liefrt Netze mit status bergungbevorstehen zu einem Berger aus
+   // liefert Netze mit status bergungbevorstehen zu einem Berger aus
    public List<Netz> NetzzuBergerBergung(Berger berger)
-    {       /*List<Netz> netzBergung = new ArrayList<>(0);
-            List <Netz> netz = berger.getNetzList();
-            for (Netz n : netz) {
-            if (n.getStatus().equals("bergungbevorstehend"))
-            
-        
-            netzBergung.add(n); 
-            
-    }
-        return netzBergung; */
+    {   
         EntityManager em = emf.createEntityManager();
         EntityTransaction t = em.getTransaction();
-        String nachname = berger.getNachname();
-        Query abfrage = em.createQuery("select n from Netz n JOIN n.berger b WHERE b.nachname LIKE :nachname AND n.status ='bergungbevorstehend'").setParameter("nachname", nachname);
+       int id = berger.getId();
+        Query abfrage = em.createQuery("select n from Netz n JOIN n.berger b WHERE b.id = :id AND n.status ='bergungbevorstehend'").setParameter("id", id);
         
         List<Netz> NetzBerger = abfrage.getResultList();
         
@@ -160,30 +151,13 @@ public class NetzDAO {
         
         return NetzBerger;
     }
+   
    // Liest die Netze in Melder aus
-   public List<Netz> NetzzuMelder(Melder melder)
-    {
-            List <Netz> netz = melder.getNetzList();
-         
-         
-            return netz;
-    }
-   // Liest den Berger zu einem Netz aus
-   public Berger BergerzuNetz(Netz netz)
-    {
-            Berger berger = netz.getBerger();
-         
-         
-            return berger;
-    }
-   // Liest die Netze zu einem Berger aus
-   public List<Netz> NetzzuBerger(Berger berger)
-    {
-            List <Netz> netz = berger.getNetzList();
-         
-         
-            return netz;
-    }
+ 
+  
+   
+  
+   
    // Speichert das zulestzt eingegebene oder bearbeitete Netz
    /*public List letzteNetz()
             
