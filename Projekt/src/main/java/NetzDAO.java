@@ -1,7 +1,6 @@
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,27 +45,9 @@ public class NetzDAO {
             return alleNetze;
         
     }
-    /*
-    public void saveNetzMelder(Netz neuesNetz, Melder neuerMelder)
-    {
-        
-        EntityManager em = emf.createEntityManager();
-        
-        
-        
-        EntityTransaction t = em.getTransaction();
-        
-        
-        
-            neuerMelder.getNetzList().add(neuesNetz);
-            neuesNetz.setMelder(neuerMelder);
-                t.begin();
-                em.merge(neuerMelder);
-                em.merge(neuesNetz);
-                t.commit();
-            em.close();
-        }
-    */
+  
+    
+    // speichert Melder und Netz in der DB
         public void saveNetzMelder(Netz neuesNetz, Melder neuerMelder)
     {
         
@@ -85,6 +66,7 @@ public class NetzDAO {
                 
     }
     
+        //speichert Berger und Netz in der DB
     public void saveNetzBerger(Netz gemeldetesNetz, Berger neuerBerger)
     {
         neuerBerger.getNetzList().add(gemeldetesNetz);
@@ -110,18 +92,7 @@ public class NetzDAO {
             return alleNetze;
         
     }
-   /*
-   public List<Netz> zeigeNetzeBergungBevorstehendMitBerger() 
-        { 
-            EntityManager em = emf.createEntityManager();
-            Query abfrage = em.createQuery("SELECT a FROM Netz a JOIN a.berger b where a.status='bergungbevorstehend'");
-            
-            List<Netz> alleNetze = abfrage.getResultList();
-            em.close();
-            return alleNetze;
-        
-    }
-    */
+ 
    public void aktualisiereNetz(Netz gemeldetesNetz)
     {
         
@@ -137,12 +108,12 @@ public class NetzDAO {
     }
    
 
-   // liefert Netze mit status bergungbevorstehen zu einem Berger aus
+   // liefert Netze mit status bergungbevorstehend zu einem Berger aus
    public List<Netz> NetzzuBergerBergung(Berger berger)
     {   
         EntityManager em = emf.createEntityManager();
-        EntityTransaction t = em.getTransaction();
-       int id = berger.getId();
+        
+        int id = berger.getId();
         Query abfrage = em.createQuery("select n from Netz n JOIN n.berger b WHERE b.id = :id AND n.status ='bergungbevorstehend'").setParameter("id", id);
         
         List<Netz> NetzBerger = abfrage.getResultList();
@@ -151,28 +122,5 @@ public class NetzDAO {
         
         return NetzBerger;
     }
-   
-   // Liest die Netze in Melder aus
  
-  
-   
-  
-   
-   // Speichert das zulestzt eingegebene oder bearbeitete Netz
-   /*public List letzteNetz()
-            
-    {
-        
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction t = em.getTransaction();
-        
-        Query abfrage = em.createQuery("select n from Netz n order by n.id desc", Netz.class).setMaxResults(1);
-        
-        List<Melder> letzterMelder = abfrage.getResultList();
-        
-        em.close();
-        
-        return letzterMelder;
-        
-    }*/
 }

@@ -66,8 +66,8 @@
             <h:outputLabel for="groesse">Geschätzte Grösse</h:outputLabel>
           
             <br/>
-             <p:inputText id="groesse" value="#{meldenController.groesse}" required="true" />
-             <p:message for="groesse" display="default"/>
+             <p:inputNumber id="groesse" value="#{meldenController.groesse}" required="true" minValue="0" maxValue="500" decimalPlaces="0"/>
+             <p:message for="groesse" display="text"/>
             <br/>
             <br/>
             <p:commandButton value="Submit" ajax="false" action="#{meldenController.saveNetzMelder()}"  />

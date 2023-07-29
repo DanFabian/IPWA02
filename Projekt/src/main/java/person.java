@@ -52,14 +52,6 @@ public class person implements Serializable {
         this.melder = melder;
     }
 
-    /*public boolean getBerger() {
-        return berger;
-    }
-
-    public void setBerger(boolean berger) {
-        this.berger = berger;
-    }*/
-
     public String getNachname() {
         return nachname;
     }

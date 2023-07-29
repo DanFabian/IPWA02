@@ -21,13 +21,11 @@ public class indexController {
 
     public String geheSeite() {
       
-       /*melderDAO.erzeugeMelderId();*/
+     
         if (person.getTelefon().equalsIgnoreCase("")){
-           /*person.setBerger(false);*/
-            person.setMelder(true);
+          person.setMelder(true);
         }
-        else {/*person.setBerger(true);*/
-              person.setMelder(false);
+        else {person.setMelder(false);
            }
         return "auswahl";
       
